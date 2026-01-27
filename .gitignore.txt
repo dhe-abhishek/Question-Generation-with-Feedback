@@ -1,0 +1,7 @@
+# Virtual Environment
+env/
+venv/
+ENV/
+
+# Secrets and Credentials
+.env
