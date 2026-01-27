@@ -1,0 +1,50 @@
+--- Question 1 ---
+Bloom's Level: 3 (Applying)
+Question: A company wants to develop a new e-commerce platform that can efficiently manage spatial data for logistics, temporal data for delivery tracking, and multimedia content for product displays. Based on the evolution of database technology, which period would offer the most suitable systems for these requirements?
+Options:
+  A) A. 1960s and earlier (primitive file processing)
+  B) B. 1970s to early 1980s (relational database systems)
+  C) C. Mid 1980s to present (advanced database systems)
+  D) D. Late 1980s to present (advanced data analysis)
+Answer: C
+
+--- Question 2 ---
+Bloom's Level: 3 (Applying)
+Question: A medical research team has collected a massive dataset of patient symptoms, diagnoses, and treatment outcomes. They want to identify hidden correlations between specific symptoms and successful treatments without prior hypotheses. Which aspect of data mining would be most directly applied to achieve this goal?
+Options:
+  A) A. Online Transaction Processing (OLTP)
+  B) B. Data modeling with entity relationship models
+  C) C. Automated discovery of previously unknown patterns
+  D) D. Query processing and optimization using SQL
+Answer: C
+
+--- Question 3 ---
+Bloom's Level: 3 (Applying)
+Question: Google aggregates hundreds of millions of search queries daily. When a user searches for 'flu,' this query is treated as a transaction. By aggregating all flu-related searches, Google can estimate flu activity faster than traditional systems. This scenario primarily demonstrates the application of data mining for which purpose?
+Options:
+  A) A. Ensuring data integrity through concurrency control
+  B) B. Predicting likely outcomes and meeting global challenges
+  C) C. Optimizing query languages like SQL
+  D) D. Developing hierarchical and network database systems
+Answer: B
+
+--- Question 4 ---
+Bloom's Level: 3 (Applying)
+Question: A large supermarket chain wants to rearrange its store layout to encourage customers to buy complementary products together. For example, if customers buying bread also tend to buy peanut butter, the store wants to place jelly nearby. Which data mining technique would be most relevant for identifying these purchasing relationships?
+Options:
+  A) A. Data collection and primitive file processing
+  B) B. Online Analytical Processing (OLAP)
+  C) C. Association and Correlation analysis
+  D) D. User interface design and forms
+Answer: C
+
+--- Question 5 ---
+Bloom's Level: 3 (Applying)
+Question: Walmart processes over 20 million point-of-sale transactions daily. If they apply data mining techniques to this data, they can develop targeted marketing campaigns and more accurately predict customer loyalty. This capability aligns with which key offering of data mining technology?
+Options:
+  A) A. Integration with information retrieval systems
+  B) B. Automated prediction of trends and behaviors
+  C) C. Managing complex types of data like multimedia
+  D) D. Advancements in extended relational models
+Answer: B
+

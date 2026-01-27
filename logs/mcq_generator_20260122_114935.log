@@ -1,0 +1,42 @@
+2026-01-22 11:49:35,725 - matplotlib - DEBUG - matplotlib data path: D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\matplotlib\mpl-data
+2026-01-22 11:49:35,731 - matplotlib - DEBUG - CONFIGDIR=C:\Users\Administrator\.matplotlib
+2026-01-22 11:49:35,732 - matplotlib - DEBUG - interactive is False
+2026-01-22 11:49:35,732 - matplotlib - DEBUG - platform is win32
+2026-01-22 11:49:35,763 - matplotlib - DEBUG - CACHEDIR=C:\Users\Administrator\.matplotlib
+2026-01-22 11:49:35,764 - matplotlib.font_manager - DEBUG - Using fontManager instance from C:\Users\Administrator\.matplotlib\fontlist-v390.json
+2026-01-22 11:49:37,211 - datasets - DEBUG - PyTorch version 2.9.0 available.
+2026-01-22 11:49:39,008 - ragas._analytics - DEBUG - Starting AnalyticsBatcher thread with interval 10 seconds
+2026-01-22 11:49:39,537 - relevancy_utils - INFO - Starting Ragas scorer initialization...
+2026-01-22 11:49:39,868 - relevancy_utils - DEBUG - ChatGroq LLM initialized.
+2026-01-22 11:49:40,680 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-01-22 11:49:40,680 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-22 11:49:40,681 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-22 11:49:41,106 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-22 11:49:41,124 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-22 11:49:41,344 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-22 11:49:41,362 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-22 11:49:41,598 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-22 11:49:41,616 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-22 11:49:41,848 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-22 11:49:41,864 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-22 11:49:42,083 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-22 11:49:42,104 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-22 11:49:42,323 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-22 11:49:42,344 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-22 11:49:42,567 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-22 11:49:42,792 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-22 11:49:42,811 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-22 11:49:43,076 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-22 11:49:43,096 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-22 11:49:43,336 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-22 11:49:43,597 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-22 11:49:43,615 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-22 11:49:43,837 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6831
+2026-01-22 11:49:43,843 - relevancy_utils - DEBUG - HuggingFace Embeddings initialized.
+2026-01-22 11:49:43,843 - relevancy_utils - INFO - Ragas ResponseRelevancy scorer initialized successfully.
+2026-01-22 11:49:43,845 - faithfulness_utils - INFO - Initializing Faithfulness scorer...
+2026-01-22 11:49:44,163 - faithfulness_utils - INFO - Faithfulness scorer initialized successfully.
+2026-01-22 11:49:44,171 - werkzeug - WARNING -  * Debugger is active!
+2026-01-22 11:49:44,172 - werkzeug - INFO -  * Debugger PIN: 103-783-783
+2026-01-22 11:52:07,871 - werkzeug - INFO -  * Detected change in 'D:\\Learning Analytics\\Learning-AI\\Question_and_Answer_Generation_with_Feeddack\\app\\routes.py', reloading
+2026-01-22 11:52:07,871 - ragas._analytics - DEBUG - AnalyticsBatcher shutdown complete

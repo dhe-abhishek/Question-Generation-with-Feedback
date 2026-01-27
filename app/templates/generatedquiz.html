@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results | BloomMind AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary: #5d5fef;
+            --secondary: #38f9d7;
+            --success: #10b981;
+            --danger: #ef4444;
+            --dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* Result Header & Score Circle */
+        .score-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 8px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* Student Info Banner */
+        .student-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            background: rgba(93, 95, 239, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: left;
+            border: 1px solid rgba(93, 95, 239, 0.2);
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .info-item span {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Question Review Section */
+        .review-title {
+            margin: 40px 0 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .question-row {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid transparent;
+        }
+
+        .correct-border { border-left-color: var(--success); }
+        .wrong-border { border-left-color: var(--danger); }
+
+        .status-badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .bg-success { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .bg-danger { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+        .answer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .ans-box {
+            padding: 12px;
+            border-radius: 8px;
+            background: #0f172a;
+        }
+
+        .btn-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-home:hover { opacity: 0.9; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="score-card">
+            <h1>Performance Report</h1>
+            <div class="score-circle">
+                {{ score }}/{{ total }}
+            </div>
+            
+            {% set percentage = (score / total * 100) | round %}
+            <h3 style="color: var(--text-dim)">Percentage: {{ percentage }}%</h3>
+
+            <div class="student-banner">
+                <div class="info-item">
+                    <label>Candidate</label>
+                    <span>{{ student.name }}</span>
+                </div>
+                <div class="info-item">
+                    <label>Roll Number</label>
+                    <span>{{ student.roll_no }}</span>
+                </div>
+                <div class="info-item">
+                    <label>Class</label>
+                    <span>{{ student.class }}</span>
+                </div>
+            </div>
+            
+            <a href="{{ url_for('main.generate_quiz') }}" class="btn-home">
+                <i class="fas fa-redo"></i> Take Another Quiz
+            </a>
+        </div>
+
+        <h2 class="review-title"><i class="fas fa-clipboard-check"></i> Question Review</h2>
+        
+        {% for res in results %}
+        <div class="question-row {{ 'correct-border' if res.is_correct else 'wrong-border' }}">
+            <div class="status-badge {{ 'bg-success' if res.is_correct else 'bg-danger' }}">
+                <i class="fas {{ 'fa-check-circle' if res.is_correct else 'fa-times-circle' }}"></i>
+                {{ 'Correct' if res.is_correct else 'Incorrect' }}
+            </div>
+            
+            <p style="margin: 0; line-height: 1.5;"><strong>Q{{ loop.index }}.</strong> {{ res.text }}</p>
+
+            <div class="answer-grid">
+                <div class="ans-box">
+                    <label style="color: var(--text-dim); display: block; font-size: 0.7rem;">YOUR ANSWER</label>
+                    <span style="color: {{ '#34d399' if res.is_correct else '#f87171' }}">
+                        {{ res.student if res.student else 'No Answer' }}
+                    </span>
+                </div>
+                <div class="ans-box">
+                    <label style="color: var(--text-dim); display: block; font-size: 0.7rem;">CORRECT ANSWER</label>
+                    <span style="color: #38f9d7;">{{ res.correct }}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

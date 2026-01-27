@@ -1,0 +1,25 @@
+--- Question 1 ---
+Bloom's Level: 2 (Understanding)
+Question: What is the primary role of the buffer pool manager in a Database Management System (DBMS) as introduced in the text?
+Answer: The buffer pool manager's primary role is to serve as the location where the DBMS stores copies of database pages that it retrieves from non-volatile storage. This allows for faster access to frequently used data.
+
+--- Question 2 ---
+Bloom's Level: 2 (Understanding)
+Question: According to the text, what is one key advantage of using multiple buffer pools within a DBMS?
+Answer: Using multiple buffer pools helps reduce latch contention and improve locality within the DBMS. This is achieved by partitioning memory, which avoids contention on LRU tracking meta-data.
+
+--- Question 3 ---
+Bloom's Level: 2 (Understanding)
+Question: In the context of page layouts, what is a slotted page and what does its slot array map?
+Answer: A slotted page is a common page layout scheme. Its slot array maps 'slots' to the starting position offsets of the tuples within the page.
+
+--- Question 4 ---
+Bloom's Level: 2 (Understanding)
+Question: Briefly explain the fundamental difference in how log-structured storage handles tuple updates compared to traditional in-place updates.
+Answer: Log-structured storage maintains a log of changes, appending log records for PUT/DELETE operations, rather than updating tuples in-place. The DBMS applies changes to an in-memory MemTable and then writes them sequentially to disk as SSTables.
+
+--- Question 5 ---
+Bloom's Level: 2 (Understanding)
+Question: What is scan sharing, and how does the text differentiate it from result caching?
+Answer: Scan sharing allows multiple queries to attach to a single cursor that scans a table, also known as synchronized scans. This is distinct from result caching, which stores and reuses the output of a query rather than sharing the scan operation itself.
+

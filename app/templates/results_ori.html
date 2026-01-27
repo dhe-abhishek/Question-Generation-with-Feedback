@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Results | BloomMind AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            /* Colors synced with generate_quiz.html */
+            --primary: #5d5fef;
+            --secondary: #38f9d7; /* Aqua/Teal */
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --dark: #0f172a;      /* Deep Navy Background */
+            --card-bg: #1e293b;   /* Slate Card Background */
+            --light: #f8fafc;
+            --accent: #8b5cf6;    /* Purple from home.html */
+            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            background: var(--gradient-4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        /* Question Card Styling */
+        .mcq {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            transition: var(--transition);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .mcq:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 249, 215, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        /* Bloom's Level Badge */
+        .blooms-badge {
+            font-size: 0.7rem;
+            padding: 5px 12px;
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Options Grid */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .option-item {
+            background: rgba(15, 23, 42, 0.4);
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Correct Answer Section */
+        .answer-key {
+            margin-top: 20px;
+            padding: 15px 20px;
+            background: rgba(56, 249, 215, 0.08);
+            border-left: 4px solid var(--secondary);
+            border-radius: 8px;
+            color: var(--secondary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Action Buttons Area */
+        .actions {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-4);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 10px 25px rgba(56, 249, 215, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--light);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 650px) {
+            .options-grid { grid-template-columns: 1fr; }
+            .actions { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-microchip"></i> Generation Complete</h1>
+            <p class="subtitle">Review your AI-generated questions and download your assessment.</p>
+        </header>
+
+        {% for mcq in mcqs %}
+            <div class="mcq">
+                <div class="question-header">
+                    <div class="question-text">
+                        <span style="color: var(--secondary); margin-right: 10px;">{{ loop.index }}.</span>
+                        {{ mcq.question }}
+                    </div>
+                    {% if mcq.blooms_level %}
+                        <div class="blooms-badge">
+                            <i class="fas fa-brain"></i>
+                            {% if mcq.blooms_level == '1' %}Remembering
+                            {% elif mcq.blooms_level == '2' %}Understanding
+                            {% elif mcq.blooms_level == '3' %}Applying
+                            {% elif mcq.blooms_level == '4' %}Analyzing
+                            {% elif mcq.blooms_level == '5' %}Evaluating
+                            {% elif mcq.blooms_level == '6' %}Creating
+                            {% else %}Level {{ mcq.blooms_level }}{% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="options-grid">
+                    {% for option in mcq.options %}
+                        <div class="option-item">
+                            <i class="far fa-circle" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                            {{ option }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="answer-key">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Correct Answer: <span style="text-transform: uppercase;">{{ mcq.correct_answer }}</span></span>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="actions">
+            <a href="/download/{{ txt_filename }}" class="btn btn-outline">
+                <i class="fas fa-file-alt"></i> TXT
+            </a>
+            <a href="/download/{{ pdf_filename }}" class="btn btn-primary">
+                <i class="fas fa-file-pdf"></i> Download PDF
+            </a>
+            <a href="/" class="btn btn-outline">
+                <i class="fas fa-redo"></i> New Session
+            </a>
+        </div>
+    </div>
+</body>
+</html>

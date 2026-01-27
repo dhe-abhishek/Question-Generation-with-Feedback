@@ -1,0 +1,25 @@
+--- Question 1 ---
+Bloom's Level: 2 (Understanding)
+Question: Data link layer is a [BLANK] layer in OS reference model.
+Answer: second
+
+--- Question 2 ---
+Bloom's Level: 2 (Understanding)
+Question: The data link layer helps to achieve reliable and efficient communication between two [BLANK] machines.
+Answer: adjacent
+
+--- Question 3 ---
+Bloom's Level: 2 (Understanding)
+Question: The data link layer's function of sending data from one machine only to the next machine is called [BLANK] communication.
+Answer: node to node
+
+--- Question 4 ---
+Bloom's Level: 2 (Understanding)
+Question: In the data link layer, [BLANK] takes the packet from the network layer and creates manageable data units called frames.
+Answer: framing
+
+--- Question 5 ---
+Bloom's Level: 2 (Understanding)
+Question: The mechanism used to avoid a fast translator from running a slow receiver is known as [BLANK].
+Answer: flow control
+

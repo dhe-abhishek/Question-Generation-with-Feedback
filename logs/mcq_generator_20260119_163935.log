@@ -1,0 +1,87 @@
+2026-01-19 16:39:35,519 - matplotlib - DEBUG - matplotlib data path: D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\matplotlib\mpl-data
+2026-01-19 16:39:35,525 - matplotlib - DEBUG - CONFIGDIR=C:\Users\Administrator\.matplotlib
+2026-01-19 16:39:35,526 - matplotlib - DEBUG - interactive is False
+2026-01-19 16:39:35,526 - matplotlib - DEBUG - platform is win32
+2026-01-19 16:39:35,557 - matplotlib - DEBUG - CACHEDIR=C:\Users\Administrator\.matplotlib
+2026-01-19 16:39:35,558 - matplotlib.font_manager - DEBUG - Using fontManager instance from C:\Users\Administrator\.matplotlib\fontlist-v390.json
+2026-01-19 16:39:37,073 - datasets - DEBUG - PyTorch version 2.9.0 available.
+2026-01-19 16:39:38,903 - ragas._analytics - DEBUG - Starting AnalyticsBatcher thread with interval 10 seconds
+2026-01-19 16:39:39,436 - relevancy_utils - INFO - Starting Ragas scorer initialization...
+2026-01-19 16:39:39,826 - relevancy_utils - DEBUG - ChatGroq LLM initialized.
+2026-01-19 16:39:40,704 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-01-19 16:39:40,704 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-19 16:39:40,705 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-19 16:39:41,101 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-19 16:39:41,117 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-19 16:39:41,346 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-19 16:39:41,364 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-19 16:39:41,598 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-19 16:39:41,617 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-19 16:39:41,850 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-19 16:39:41,872 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-19 16:39:42,101 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-19 16:39:42,119 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-19 16:39:42,344 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-19 16:39:42,361 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-19 16:39:42,601 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-19 16:39:42,829 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-19 16:39:42,851 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-19 16:39:43,108 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-19 16:39:43,126 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-19 16:39:43,365 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-19 16:39:43,607 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-19 16:39:43,625 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-19 16:39:43,850 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6859
+2026-01-19 16:39:43,853 - relevancy_utils - DEBUG - HuggingFace Embeddings initialized.
+2026-01-19 16:39:43,853 - relevancy_utils - INFO - Ragas ResponseRelevancy scorer initialized successfully.
+2026-01-19 16:39:43,854 - faithfulness_utils - INFO - Initializing Faithfulness scorer...
+2026-01-19 16:39:44,160 - faithfulness_utils - INFO - Faithfulness scorer initialized successfully.
+2026-01-19 16:39:44,170 - werkzeug - WARNING -  * Debugger is active!
+2026-01-19 16:39:44,171 - werkzeug - INFO -  * Debugger PIN: 103-783-783
+2026-01-19 16:39:44,319 - routes - INFO - Rendering home page
+2026-01-19 16:39:44,326 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:39:44] "GET / HTTP/1.1" 200 -
+2026-01-19 16:39:48,821 - routes - INFO - Rendering Question generator page
+2026-01-19 16:39:48,823 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:39:48] "GET /mcq-generator HTTP/1.1" 200 -
+2026-01-19 16:39:57,875 - routes - INFO - Received Question generation request
+2026-01-19 16:39:57,878 - validation - INFO - File and parameters validated successfully.
+2026-01-19 16:39:57,879 - file_utils - DEBUG - File 04-bufferpool.pdf allowed: True
+2026-01-19 16:39:57,882 - file_utils - INFO - File saved to: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\uploads\04-bufferpool.pdf
+2026-01-19 16:39:57,972 - pdf_extraction_util - INFO - Successfully extracted 42260 characters from 04-bufferpool.pdf
+2026-01-19 16:39:58,011 - routes - INFO - Successfully saved content for 04-bufferpool.pdf to Context table.
+2026-01-19 16:39:58,471 - question_generation - INFO - QuestionGenerator initialized with model: gemini-2.5-flash
+2026-01-19 16:39:58,472 - question_generation - INFO - Generating structured content using model gemini-2.5-flash...
+2026-01-19 16:39:58,472 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-19 16:39:58,473 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-01-19 16:39:58,487 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000234FC4AEE40>
+2026-01-19 16:39:58,488 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000234FC4CF250> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-01-19 16:39:58,502 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000234FC4A4B90>
+2026-01-19 16:39:58,502 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-19 16:39:58,502 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-19 16:39:58,502 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-19 16:39:58,503 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-19 16:39:58,503 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-19 16:40:16,143 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Mon, 19 Jan 2026 11:10:15 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=17628'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-19 16:40:16,144 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-01-19 16:40:16,144 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-19 16:40:16,145 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-19 16:40:16,145 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-19 16:40:16,145 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-19 16:40:16,146 - question_generation - INFO - Successfully separated 5 questions and 5 answer key items.
+2026-01-19 16:40:16,147 - file_utils - INFO - Cleaned up file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\uploads\04-bufferpool.pdf
+2026-01-19 16:40:16,147 - pdf_generation - INFO - Creating PDF file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\results\generated_mcqs_04-bufferpool_questions.pdf
+2026-01-19 16:40:16,157 - fpdf.fpdf - DEBUG - Page break on page 1 at y=283 for element of height 6 > 277
+2026-01-19 16:40:16,169 - fpdf.output - DEBUG - Final size summary of the biggest document sections:
+2026-01-19 16:40:16,170 - fpdf.output - DEBUG - - pages: 2.8KiB
+2026-01-19 16:40:16,172 - fpdf.output - DEBUG - - fonts: 304.0B
+2026-01-19 16:40:16,172 - pdf_generation - INFO - PDF successfully generated at D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\results\generated_mcqs_04-bufferpool_questions.pdf
+2026-01-19 16:40:16,172 - file_utils - INFO - Saving TXT results for: 04-bufferpool.pdf
+2026-01-19 16:40:16,176 - pdf_generation - INFO - Saving merged questions to text file: generated_mcqs_04-bufferpool_key.txt
+2026-01-19 16:40:16,177 - pdf_generation - INFO - Successfully saved 5 questions to text file.
+2026-01-19 16:40:16,177 - file_utils - INFO - TXT file saved: generated_mcqs_04-bufferpool_key.txt
+2026-01-19 16:40:16,179 - routes - INFO - Successfully generated 5 questions.
+2026-01-19 16:40:16,190 - httpcore.connection - DEBUG - close.started
+2026-01-19 16:40:16,191 - httpcore.connection - DEBUG - close.complete
+2026-01-19 16:40:16,194 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:40:16] "POST /generate HTTP/1.1" 200 -
+2026-01-19 16:40:38,726 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 16:40:38] "[35m[1mPOST /reframe_question HTTP/1.1[0m" 500 -
+2026-01-19 16:41:35,300 - werkzeug - INFO -  * Detected change in 'D:\\Learning Analytics\\Learning-AI\\Question_and_Answer_Generation_with_Feeddack\\app\\routes.py', reloading
+2026-01-19 16:41:35,301 - ragas._analytics - DEBUG - AnalyticsBatcher shutdown complete

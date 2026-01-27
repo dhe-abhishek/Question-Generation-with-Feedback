@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom's Level Analysis Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: #2c3e50;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h1:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+        
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .result-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .match .result-icon {
+            background: #e8f5e9;
+            color: #2ecc71;
+            border: 2px solid #2ecc71;
+        }
+        
+        .no-match .result-icon {
+            background: #ffebee;
+            color: #e74c3c;
+            border: 2px solid #e74c3c;
+        }
+        
+        .result-status {
+            text-align: right;
+        }
+        
+        .result-status h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .match .result-status h2 {
+            color: #2ecc71;
+        }
+        
+        .no-match .result-status h2 {
+            color: #e74c3c;
+        }
+        
+        .result-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-group {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .info-value {
+            font-size: 16px;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+        
+        .question-text {
+            font-style: italic;
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .confidence-meter {
+            height: 10px;
+            background: #ecf0f1;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .confidence-fill {
+            height: 100%;
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .high-confidence {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+        }
+        
+        .medium-confidence {
+            background: linear-gradient(to right, #f39c12, #e67e22);
+        }
+        
+        .low-confidence {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+        }
+        
+        .blooms-level {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        
+        .level-remembering { background: #e3f2fd; color: #1565c0; }
+        .level-understanding { background: #e8f5e9; color: #2e7d32; }
+        .level-applying { background: #fff3e0; color: #ef6c00; }
+        .level-analyzing { background: #fbe9e7; color: #d84315; }
+        .level-evaluating { background: #f3e5f5; color: #7b1fa2; }
+        .level-creating { background: #e0f7fa; color: #00838f; }
+        
+        .explanation-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            line-height: 1.6;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(52, 152, 219, 0.4);
+        }
+        
+        .back-button:active {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .result-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .result-status {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bloom's Level Analysis Result</h1>
+        
+        <div class="result-card {% if analysis.matches_level %}match{% else %}no-match{% endif %}">
+            <div class="result-header">
+                <div class="result-icon">
+                    {% if analysis.matches_level %}✓{% else %}✗{% endif %}
+                </div>
+                <div class="result-status">
+                    <h2>{% if analysis.matches_level %}Match Found{% else %}No Match{% endif %}</h2>
+                    <p>{% if analysis.matches_level %}The question matches the selected Bloom's level{% else %}The question doesn't match the selected Bloom's level{% endif %}</p>
+                </div>
+            </div>
+            
+            <div class="info-group">
+                <div class="info-label">Question Analyzed</div>
+                <div class="question-text">{{ question }}</div>
+            </div>
+            
+            <div class="info-group">
+                <div class="info-label">Selected Bloom's Level</div>
+                <div class="info-value">
+                    <span class="blooms-level level-{{ selected_level|lower }}">{{ selected_level }}</span>
+                </div>
+            </div>
+            
+            <div class="info-group">
+                <div class="info-label">Detected Bloom's Level</div>
+                <div class="info-value">
+                    <span class="blooms-level level-{{ analysis.actual_level|lower }}">{{ analysis.actual_level }}</span>
+                </div>
+            </div>
+            
+            <div class="info-group">
+                <div class="info-label">Analysis Confidence</div>
+                <div class="info-value">
+                    {{ (analysis.confidence * 100)|round(1) }}%
+                    <div class="confidence-meter">
+                        <div class="confidence-fill 
+                            {% if analysis.confidence >= 0.7 %}high-confidence
+                            {% elif analysis.confidence >= 0.4 %}medium-confidence
+                            {% else %}low-confidence{% endif %}" 
+                            style="width: {{ analysis.confidence * 100 }}%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-group">
+                <div class="info-label">Detailed Explanation</div>
+                <div class="explanation-box">
+                    {{ analysis.explanation }}
+                </div>
+            </div>
+        </div>
+        
+        <a href="/blooms-checker" class="back-button">Analyze Another Question</a>
+    </div>
+
+    <script>
+        // Add subtle animation to confidence meter
+        document.addEventListener('DOMContentLoaded', function() {
+            const confidenceFills = document.querySelectorAll('.confidence-fill');
+            confidenceFills.forEach(fill => {
+                // Store original width
+                const originalWidth = fill.style.width;
+                // Set to 0 initially
+                fill.style.width = '0';
+                // Animate to original width
+                setTimeout(() => {
+                    fill.style.width = originalWidth;
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>

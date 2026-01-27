@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Ready | BloomMind AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary: #5d5fef;
+            --secondary: #38f9d7;
+            --dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            max-width: 600px;
+            width: 90%;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .icon-header {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            margin-bottom: 30px;
+        }
+
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(56, 249, 215, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .qr-container img {
+            display: block;
+            width: 250px;
+            height: 250px;
+        }
+
+        .link-box {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            margin-bottom: 30px;
+        }
+
+        .link-box code {
+            color: var(--secondary);
+            word-break: break-all;
+            font-size: 0.9rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-dim);
+            color: var(--text-main);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .pulse {
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0px rgba(56, 249, 215, 0.4); }
+            100% { box-shadow: 0 0 0 20px rgba(56, 249, 215, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="icon-header pulse"><i class="fas fa-qrcode"></i></div>
+        <h1>Quiz Session Ready!</h1>
+        <p class="subtitle">Ask students to scan the code below to join the session for:<br><strong>{{ filename }}</strong></p>
+
+        <div class="qr-container">
+            <img src="data:image/png;base64,{{ qr_code }}" alt="Scan to start quiz">
+        </div>
+
+        <div class="link-box">
+            <label style="display: block; font-size: 0.7rem; color: var(--text-dim); margin-bottom: 5px; text-transform: uppercase;">Direct Access Link</label>
+            <code>{{ quiz_url }}</code>
+        </div>
+
+        <div class="btn-group" style="display: flex; flex-direction: column; gap: 12px; margin-top: 25px;">
+    
+            <a href="{{ url_for('main.take_quiz', doc_name=filename) }}" class="btn btn-primary" style="margin: 0;">
+                <i class="fas fa-desktop"></i> Open on this PC
+            </a>
+        
+            <a href="data:image/png;base64,{{ qr_code }}" 
+               download="QR_Code_{{ filename }}.png" 
+               class="btn" 
+               style="background: var(--secondary); color: var(--dark); margin: 0; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fas fa-download"></i> Download QR Code
+            </a>
+        
+            <a href="{{ url_for('main.home') }}" class="btn" 
+               style="background: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); margin: 0;">
+                <i class="fas fa-home"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

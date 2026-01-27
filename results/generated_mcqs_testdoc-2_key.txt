@@ -1,0 +1,200 @@
+--- Question 1 ---
+Bloom's Level: 1 (Remembering)
+Question: What is the name of the enzyme in saliva that begins the digestion of starch?
+Options:
+  A) Salivary amylase
+  B) Pepsin
+  C) Lingual lipase
+  D) Trypsin
+Answer: Salivary amylase
+
+--- Question 2 ---
+Bloom's Level: 1 (Remembering)
+Question: What is the small, round slurry mass of food called after it has been chewed and mixed with saliva?
+Options:
+  A) Chyme
+  B) Bolus
+  C) Zymogen
+  D) Feces
+Answer: Bolus
+
+--- Question 3 ---
+Bloom's Level: 1 (Remembering)
+Question: Gastric juice in the stomach is primarily composed of which two substances?
+Options:
+  A) Amylase and mucus
+  B) Bile and lipase
+  C) Hydrochloric acid and pepsin
+  D) Trypsin and chymotrypsin
+Answer: Hydrochloric acid and pepsin
+
+--- Question 4 ---
+Bloom's Level: 1 (Remembering)
+Question: What substance is secreted by the stomach to protect its wall from the damaging effects of its own chemicals?
+Options:
+  A) Bile
+  B) Saliva
+  C) Gastrin
+  D) Mucus
+Answer: Mucus
+
+--- Question 5 ---
+Bloom's Level: 1 (Remembering)
+Question: What is the term for the waves of muscular contractions that move food through the digestive tract, such as down the esophagus and along the stomach wall?
+Options:
+  A) Peristalsis
+  B) Mastication
+  C) Hydrolysis
+  D) Emulsification
+Answer: Peristalsis
+
+--- Question 6 ---
+Bloom's Level: 1 (Remembering)
+Question: What is the fourth and final stomach compartment in ruminants called?
+Options:
+  A) Reticulo-rumen
+  B) Abomasum
+  C) Gizzard
+  D) Duodenum
+Answer: Abomasum
+
+--- Question 7 ---
+Bloom's Level: 1 (Remembering)
+Question: In an earthworm's digestive system, which part is used for the temporary storage of food?
+Options:
+  A) Gizzard
+  B) Pharynx
+  C) Crop
+  D) Intestine
+Answer: Crop
+
+--- Question 8 ---
+Bloom's Level: 1 (Remembering)
+Question: According to the text, where are fats mainly digested in the human body?
+Options:
+  A) In the mouth
+  B) In the stomach
+  C) In the esophagus
+  D) In the small intestine
+Answer: In the small intestine
+
+--- Question 9 ---
+Bloom's Level: 1 (Remembering)
+Question: What term refers to the physical breakdown of large pieces of food into smaller pieces?
+Options:
+  A) Mechanical digestion
+  B) Chemical digestion
+  C) Catabolism
+  D) Absorption
+Answer: Mechanical digestion
+
+--- Question 10 ---
+Bloom's Level: 1 (Remembering)
+Question: Which phase of digestion is stimulated by the sight, thought, and smell of food?
+Options:
+  A) Gastric phase
+  B) Cephalic phase
+  C) Intestinal phase
+  D) Excitatory phase
+Answer: Cephalic phase
+
+--- Question 11 ---
+Bloom's Level: 1 (Remembering)
+Question: According to the text, how long does the gastric phase of digestion typically take?
+Options:
+  A) 1 to 2 hours
+  B) Less than an hour
+  C) 3 to 4 hours
+  D) 5 to 6 hours
+Answer: 3 to 4 hours
+
+--- Question 12 ---
+Bloom's Level: 1 (Remembering)
+Question: Teeth are not made of bone, but are instead composed of tissues such as:
+Options:
+  A) Cartilage and keratin
+  B) Muscle and lipids
+  C) Villi and microvilli
+  D) Enamel, dentine and cementum
+Answer: Enamel, dentine and cementum
+
+--- Question 13 ---
+Bloom's Level: 1 (Remembering)
+Question: What are the intestinal walls lined with to increase the surface area and improve the absorption of nutrients?
+Options:
+  A) Villi
+  B) Cilia
+  C) Flagella
+  D) Gastrin cells
+Answer: Villi
+
+--- Question 14 ---
+Bloom's Level: 1 (Remembering)
+Question: What is the name of the enzyme that breaks down the disaccharide lactose into glucose and galactose?
+Options:
+  A) Amylase
+  B) Lactase
+  C) Pepsin
+  D) Lipase
+Answer: Lactase
+
+--- Question 15 ---
+Bloom's Level: 1 (Remembering)
+Question: What is the general term for the inactive precursors of digestive enzymes, such as trypsinogen?
+Options:
+  A) Hormones
+  B) Opines
+  C) Zymogens
+  D) Peptides
+Answer: Zymogens
+
+--- Question 16 ---
+Bloom's Level: 1 (Remembering)
+Question: Which enzyme, secreted by the stomach, is one of the three main enzymes that breaks down food proteins?
+Options:
+  A) Amylase
+  B) Lipase
+  C) Lactase
+  D) Pepsin
+Answer: Pepsin
+
+--- Question 17 ---
+Bloom's Level: 1 (Remembering)
+Question: What is the term for the process where enzymes are secreted into the environment to break down organic material, as seen in most fungi?
+Options:
+  A) External digestion
+  B) Internal digestion
+  C) Coprophagia
+  D) Peristalsis
+Answer: External digestion
+
+--- Question 18 ---
+Bloom's Level: 1 (Remembering)
+Question: In an earthworm's digestive system, what substance does the esophagus add to neutralize acids?
+Options:
+  A) Hydrochloric acid
+  B) Calcium carbonate
+  C) Mucus
+  D) Enzymes
+Answer: Calcium carbonate
+
+--- Question 19 ---
+Bloom's Level: 1 (Remembering)
+Question: What is the name of the thick, semi-liquid, partially digested food that enters the duodenum from the stomach?
+Options:
+  A) Bolus
+  B) Gastric juice
+  C) Chyme
+  D) Bile
+Answer: Chyme
+
+--- Question 20 ---
+Bloom's Level: 1 (Remembering)
+Question: What is the term for the behavior practiced by animals like rabbits and hamsters where they eat their own specialized feces to re-digest food?
+Options:
+  A) Mastication
+  B) Rumination
+  C) Peristalsis
+  D) Coprophagia
+Answer: Coprophagia
+

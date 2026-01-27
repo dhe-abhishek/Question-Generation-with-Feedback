@@ -1,0 +1,247 @@
+2026-01-19 15:17:54,576 - matplotlib - DEBUG - matplotlib data path: D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\matplotlib\mpl-data
+2026-01-19 15:17:54,582 - matplotlib - DEBUG - CONFIGDIR=C:\Users\Administrator\.matplotlib
+2026-01-19 15:17:54,583 - matplotlib - DEBUG - interactive is False
+2026-01-19 15:17:54,583 - matplotlib - DEBUG - platform is win32
+2026-01-19 15:17:54,628 - matplotlib - DEBUG - CACHEDIR=C:\Users\Administrator\.matplotlib
+2026-01-19 15:17:54,630 - matplotlib.font_manager - DEBUG - Using fontManager instance from C:\Users\Administrator\.matplotlib\fontlist-v390.json
+2026-01-19 15:17:56,267 - datasets - DEBUG - PyTorch version 2.9.0 available.
+2026-01-19 15:17:58,158 - ragas._analytics - DEBUG - Starting AnalyticsBatcher thread with interval 10 seconds
+2026-01-19 15:17:58,711 - relevancy_utils - INFO - Starting Ragas scorer initialization...
+2026-01-19 15:17:59,052 - relevancy_utils - DEBUG - ChatGroq LLM initialized.
+2026-01-19 15:17:59,916 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-01-19 15:17:59,917 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-19 15:17:59,918 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-19 15:18:00,310 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-19 15:18:00,327 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-19 15:18:00,542 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-19 15:18:00,557 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-19 15:18:00,771 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-19 15:18:00,788 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-19 15:18:01,023 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-19 15:18:01,045 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-19 15:18:01,257 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-19 15:18:01,274 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-19 15:18:01,502 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-19 15:18:01,517 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-19 15:18:01,732 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-19 15:18:01,950 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-19 15:18:01,967 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-19 15:18:02,224 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-19 15:18:02,242 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-19 15:18:02,702 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-19 15:18:02,948 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-19 15:18:02,964 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-19 15:18:03,185 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6876
+2026-01-19 15:18:03,186 - relevancy_utils - DEBUG - HuggingFace Embeddings initialized.
+2026-01-19 15:18:03,187 - relevancy_utils - INFO - Ragas ResponseRelevancy scorer initialized successfully.
+2026-01-19 15:18:03,187 - faithfulness_utils - INFO - Initializing Faithfulness scorer...
+2026-01-19 15:18:03,490 - faithfulness_utils - INFO - Faithfulness scorer initialized successfully.
+2026-01-19 15:18:03,499 - werkzeug - WARNING -  * Debugger is active!
+2026-01-19 15:18:03,500 - werkzeug - INFO -  * Debugger PIN: 103-783-783
+2026-01-19 15:18:22,831 - routes - INFO - Rendering home page
+2026-01-19 15:18:22,845 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:18:22] "GET / HTTP/1.1" 200 -
+2026-01-19 15:18:25,010 - routes - INFO - Rendering Question generator page
+2026-01-19 15:18:25,014 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:18:25] "GET /mcq-generator HTTP/1.1" 200 -
+2026-01-19 15:18:32,568 - routes - INFO - Received Question generation request
+2026-01-19 15:18:32,577 - validation - INFO - File and parameters validated successfully.
+2026-01-19 15:18:32,578 - file_utils - DEBUG - File 04-bufferpool.pdf allowed: True
+2026-01-19 15:18:32,584 - file_utils - INFO - File saved to: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\uploads\04-bufferpool.pdf
+2026-01-19 15:18:32,727 - pdf_extraction_util - INFO - Successfully extracted 42260 characters from 04-bufferpool.pdf
+2026-01-19 15:18:33,616 - question_generation - INFO - QuestionGenerator initialized with model: gemini-2.5-flash
+2026-01-19 15:18:33,617 - question_generation - INFO - Generating structured content using model gemini-2.5-flash...
+2026-01-19 15:18:33,617 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-19 15:18:33,619 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-01-19 15:18:33,631 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000245799217F0>
+2026-01-19 15:18:33,631 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000002457970A030> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-01-19 15:18:33,649 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002457975DD10>
+2026-01-19 15:18:33,649 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-19 15:18:33,650 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-19 15:18:33,650 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-19 15:18:33,650 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-19 15:18:33,650 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-19 15:18:52,927 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Mon, 19 Jan 2026 09:48:52 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=19262'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-19 15:18:52,927 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-01-19 15:18:52,927 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-19 15:18:52,928 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-19 15:18:52,928 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-19 15:18:52,928 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-19 15:18:52,929 - question_generation - INFO - Successfully separated 5 questions and 5 answer key items.
+2026-01-19 15:18:52,932 - file_utils - INFO - Cleaned up file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\uploads\04-bufferpool.pdf
+2026-01-19 15:18:52,932 - pdf_generation - INFO - Creating PDF file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\results\generated_mcqs_04-bufferpool_questions.pdf
+2026-01-19 15:18:52,942 - fpdf.output - DEBUG - Final size summary of the biggest document sections:
+2026-01-19 15:18:52,942 - fpdf.output - DEBUG - - pages: 1.0KiB
+2026-01-19 15:18:52,942 - fpdf.output - DEBUG - - fonts: 199.0B
+2026-01-19 15:18:52,943 - pdf_generation - INFO - PDF successfully generated at D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\results\generated_mcqs_04-bufferpool_questions.pdf
+2026-01-19 15:18:52,943 - file_utils - INFO - Saving TXT results for: 04-bufferpool.pdf
+2026-01-19 15:18:52,946 - pdf_generation - INFO - Saving merged questions to text file: generated_mcqs_04-bufferpool_key.txt
+2026-01-19 15:18:52,948 - pdf_generation - INFO - Successfully saved 5 questions to text file.
+2026-01-19 15:18:52,949 - file_utils - INFO - TXT file saved: generated_mcqs_04-bufferpool_key.txt
+2026-01-19 15:18:52,949 - routes - INFO - Successfully generated 5 questions.
+2026-01-19 15:18:52,954 - httpcore.connection - DEBUG - close.started
+2026-01-19 15:18:52,957 - httpcore.connection - DEBUG - close.complete
+2026-01-19 15:18:52,962 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:18:52] "POST /generate HTTP/1.1" 200 -
+2026-01-19 15:21:26,272 - routes - INFO - Rendering home page
+2026-01-19 15:21:26,273 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:21:26] "GET / HTTP/1.1" 200 -
+2026-01-19 15:21:28,387 - routes - INFO - Rendering Question generator page
+2026-01-19 15:21:28,388 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:21:28] "GET /mcq-generator HTTP/1.1" 200 -
+2026-01-19 15:21:38,196 - routes - INFO - Received Question generation request
+2026-01-19 15:21:38,225 - validation - INFO - File and parameters validated successfully.
+2026-01-19 15:21:38,225 - file_utils - DEBUG - File 03-storage1.pdf allowed: True
+2026-01-19 15:21:38,228 - file_utils - INFO - File saved to: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\uploads\03-storage1.pdf
+2026-01-19 15:21:38,324 - pdf_extraction_util - INFO - Successfully extracted 26430 characters from 03-storage1.pdf
+2026-01-19 15:21:39,087 - question_generation - INFO - QuestionGenerator initialized with model: gemini-2.5-flash
+2026-01-19 15:21:39,088 - question_generation - INFO - Generating structured content using model gemini-2.5-flash...
+2026-01-19 15:21:39,088 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-19 15:21:39,089 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-01-19 15:21:39,121 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000245798B6210>
+2026-01-19 15:21:39,121 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000245798E9630> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-01-19 15:21:39,138 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000245798C0D60>
+2026-01-19 15:21:39,138 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-19 15:21:39,139 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-19 15:21:39,139 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-19 15:21:39,141 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-19 15:21:39,141 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-19 15:21:46,698 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 503, b'Service Unavailable', [(b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Type', b'application/json; charset=UTF-8'), (b'Content-Encoding', b'gzip'), (b'Date', b'Mon, 19 Jan 2026 09:51:46 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=7493'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-19 15:21:46,698 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-01-19 15:21:46,699 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-19 15:21:46,700 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-19 15:21:46,700 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-19 15:21:46,700 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-19 15:21:46,701 - question_generation - ERROR - Gemini API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}
+Traceback (most recent call last):
+  File "D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\app\services\question_generation.py", line 270, in _generate_structured_content
+    response = self.client.models.generate_content(
+        model=self.model_name,
+        contents=[prompt],
+        config=generation_config
+    )
+  File "D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\google\genai\models.py", line 4983, in generate_content
+    response = self._generate_content(
+        model=model, contents=contents, config=parsed_config
+    )
+  File "D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\google\genai\models.py", line 3795, in _generate_content
+    response = self._api_client.request(
+        'post', path, request_dict, http_options
+    )
+  File "D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\google\genai\_api_client.py", line 1292, in request
+    response = self._request(http_request, http_options, stream=False)
+  File "D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\google\genai\_api_client.py", line 1128, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\tenacity\__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\tenacity\__init__.py", line 378, in iter
+    result = action(retry_state)
+  File "D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\tenacity\__init__.py", line 420, in exc_check
+    raise retry_exc.reraise()
+          ~~~~~~~~~~~~~~~~~^^
+  File "D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\tenacity\__init__.py", line 187, in reraise
+    raise self.last_attempt.result()
+          ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\tenacity\__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\google\genai\_api_client.py", line 1105, in _request_once
+    errors.APIError.raise_for_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\google\genai\errors.py", line 110, in raise_for_response
+    raise ServerError(status_code, response_json, response)
+google.genai.errors.ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-01-19 15:21:46,711 - file_utils - INFO - Cleaned up file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\uploads\03-storage1.pdf
+2026-01-19 15:21:46,711 - routes - ERROR - Question generation failed: Gemini API Error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-01-19 15:21:46,712 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:21:46] "[32mPOST /generate HTTP/1.1[0m" 302 -
+2026-01-19 15:21:46,716 - routes - INFO - Rendering Question generator page
+2026-01-19 15:21:46,717 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:21:46] "GET /mcq-generator HTTP/1.1" 200 -
+2026-01-19 15:25:05,167 - routes - INFO - Received Question generation request
+2026-01-19 15:25:05,176 - validation - INFO - File and parameters validated successfully.
+2026-01-19 15:25:05,176 - file_utils - DEBUG - File 04-bufferpool.pdf allowed: True
+2026-01-19 15:25:05,184 - file_utils - INFO - File saved to: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\uploads\04-bufferpool.pdf
+2026-01-19 15:25:05,327 - pdf_extraction_util - INFO - Successfully extracted 42260 characters from 04-bufferpool.pdf
+2026-01-19 15:25:06,154 - question_generation - INFO - QuestionGenerator initialized with model: gemini-2.5-flash
+2026-01-19 15:25:06,154 - question_generation - INFO - Generating structured content using model gemini-2.5-flash...
+2026-01-19 15:25:06,154 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-19 15:25:06,156 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-01-19 15:25:06,168 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000245798C23F0>
+2026-01-19 15:25:06,168 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000245798EB6B0> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-01-19 15:25:06,184 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000245799255B0>
+2026-01-19 15:25:06,184 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-19 15:25:06,184 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-19 15:25:06,184 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-19 15:25:06,185 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-19 15:25:06,185 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-19 15:25:18,924 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Mon, 19 Jan 2026 09:55:18 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=12474'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-19 15:25:18,924 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-01-19 15:25:18,925 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-19 15:25:18,925 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-19 15:25:18,925 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-19 15:25:18,925 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-19 15:25:18,926 - question_generation - INFO - Successfully separated 5 questions and 5 answer key items.
+2026-01-19 15:25:18,927 - file_utils - INFO - Cleaned up file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\uploads\04-bufferpool.pdf
+2026-01-19 15:25:18,927 - pdf_generation - INFO - Creating PDF file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\results\generated_mcqs_04-bufferpool_questions.pdf
+2026-01-19 15:25:18,939 - fpdf.fpdf - DEBUG - Page break on page 1 at y=275 for element of height 6 > 277
+2026-01-19 15:25:18,944 - fpdf.output - DEBUG - Final size summary of the biggest document sections:
+2026-01-19 15:25:18,944 - fpdf.output - DEBUG - - pages: 2.2KiB
+2026-01-19 15:25:18,944 - fpdf.output - DEBUG - - fonts: 199.0B
+2026-01-19 15:25:18,947 - pdf_generation - INFO - PDF successfully generated at D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\results\generated_mcqs_04-bufferpool_questions.pdf
+2026-01-19 15:25:18,948 - file_utils - INFO - Saving TXT results for: 04-bufferpool.pdf
+2026-01-19 15:25:18,948 - pdf_generation - INFO - Saving merged questions to text file: generated_mcqs_04-bufferpool_key.txt
+2026-01-19 15:25:18,950 - pdf_generation - INFO - Successfully saved 5 questions to text file.
+2026-01-19 15:25:18,951 - file_utils - INFO - TXT file saved: generated_mcqs_04-bufferpool_key.txt
+2026-01-19 15:25:18,953 - routes - INFO - Successfully generated 5 questions.
+2026-01-19 15:25:18,960 - httpcore.connection - DEBUG - close.started
+2026-01-19 15:25:18,963 - httpcore.connection - DEBUG - close.complete
+2026-01-19 15:25:18,966 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:25:18] "POST /generate HTTP/1.1" 200 -
+2026-01-19 15:28:13,286 - routes - INFO - Rendering home page
+2026-01-19 15:28:13,288 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:28:13] "GET / HTTP/1.1" 200 -
+2026-01-19 15:28:15,187 - routes - INFO - Rendering Question generator page
+2026-01-19 15:28:15,188 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:28:15] "GET /mcq-generator HTTP/1.1" 200 -
+2026-01-19 15:28:21,938 - routes - INFO - Received Question generation request
+2026-01-19 15:28:21,944 - validation - INFO - File and parameters validated successfully.
+2026-01-19 15:28:21,944 - file_utils - DEBUG - File 04-bufferpool.pdf allowed: True
+2026-01-19 15:28:21,948 - file_utils - INFO - File saved to: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\uploads\04-bufferpool.pdf
+2026-01-19 15:28:22,080 - pdf_extraction_util - INFO - Successfully extracted 42260 characters from 04-bufferpool.pdf
+2026-01-19 15:28:22,907 - question_generation - INFO - QuestionGenerator initialized with model: gemini-2.5-flash
+2026-01-19 15:28:22,908 - question_generation - INFO - Generating structured content using model gemini-2.5-flash...
+2026-01-19 15:28:22,908 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-19 15:28:22,910 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-01-19 15:28:22,936 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000024579731480>
+2026-01-19 15:28:22,936 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000245797F8870> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-01-19 15:28:22,954 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000024579732360>
+2026-01-19 15:28:22,954 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-19 15:28:22,955 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-19 15:28:22,955 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-19 15:28:22,956 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-19 15:28:22,956 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-19 15:28:35,709 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Mon, 19 Jan 2026 09:58:35 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=12742'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-19 15:28:35,710 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-01-19 15:28:35,710 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-19 15:28:35,710 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-19 15:28:35,710 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-19 15:28:35,710 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-19 15:28:35,711 - question_generation - INFO - Successfully separated 5 questions and 5 answer key items.
+2026-01-19 15:28:35,712 - file_utils - INFO - Cleaned up file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\uploads\04-bufferpool.pdf
+2026-01-19 15:28:35,713 - pdf_generation - INFO - Creating PDF file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\results\generated_mcqs_04-bufferpool_questions.pdf
+2026-01-19 15:28:35,720 - fpdf.fpdf - DEBUG - Page break on page 1 at y=275 for element of height 6 > 277
+2026-01-19 15:28:35,725 - fpdf.output - DEBUG - Final size summary of the biggest document sections:
+2026-01-19 15:28:35,725 - fpdf.output - DEBUG - - pages: 2.5KiB
+2026-01-19 15:28:35,727 - fpdf.output - DEBUG - - fonts: 199.0B
+2026-01-19 15:28:35,727 - pdf_generation - INFO - PDF successfully generated at D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\results\generated_mcqs_04-bufferpool_questions.pdf
+2026-01-19 15:28:35,728 - file_utils - INFO - Saving TXT results for: 04-bufferpool.pdf
+2026-01-19 15:28:35,730 - pdf_generation - INFO - Saving merged questions to text file: generated_mcqs_04-bufferpool_key.txt
+2026-01-19 15:28:35,730 - pdf_generation - INFO - Successfully saved 5 questions to text file.
+2026-01-19 15:28:35,730 - file_utils - INFO - TXT file saved: generated_mcqs_04-bufferpool_key.txt
+2026-01-19 15:28:35,731 - routes - INFO - Successfully generated 5 questions.
+2026-01-19 15:28:35,734 - httpcore.connection - DEBUG - close.started
+2026-01-19 15:28:35,738 - httpcore.connection - DEBUG - close.complete
+2026-01-19 15:28:35,741 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:28:35] "POST /generate HTTP/1.1" 200 -
+2026-01-19 15:28:53,212 - routes - INFO - Download request for: generated_mcqs_04-bufferpool_questions.pdf
+2026-01-19 15:28:53,213 - routes - INFO - Sending file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation_with_Feeddack\results\generated_mcqs_04-bufferpool_questions.pdf
+2026-01-19 15:28:53,215 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 15:28:53] "GET /download/generated_mcqs_04-bufferpool_questions.pdf HTTP/1.1" 200 -
+2026-01-19 15:30:48,816 - werkzeug - INFO -  * Detected change in 'D:\\Learning Analytics\\Learning-AI\\Question_and_Answer_Generation_with_Feeddack\\app\\routes.py', reloading
+2026-01-19 15:30:48,818 - ragas._analytics - DEBUG - AnalyticsBatcher shutdown complete
+2026-01-19 15:30:49,130 - httpcore.connection - DEBUG - close.started
+2026-01-19 15:30:49,130 - httpcore.connection - DEBUG - close.complete

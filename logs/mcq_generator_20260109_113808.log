@@ -1,0 +1,61 @@
+2026-01-09 11:38:09,257 - matplotlib - DEBUG - matplotlib data path: D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\matplotlib\mpl-data
+2026-01-09 11:38:09,265 - matplotlib - DEBUG - CONFIGDIR=C:\Users\Administrator\.matplotlib
+2026-01-09 11:38:09,266 - matplotlib - DEBUG - interactive is False
+2026-01-09 11:38:09,266 - matplotlib - DEBUG - platform is win32
+2026-01-09 11:38:09,327 - matplotlib - DEBUG - CACHEDIR=C:\Users\Administrator\.matplotlib
+2026-01-09 11:38:09,331 - matplotlib.font_manager - DEBUG - Using fontManager instance from C:\Users\Administrator\.matplotlib\fontlist-v390.json
+2026-01-09 11:38:14,706 - datasets - DEBUG - PyTorch version 2.9.0 available.
+2026-01-09 11:38:18,279 - ragas._analytics - DEBUG - Starting AnalyticsBatcher thread with interval 10 seconds
+2026-01-09 11:38:19,413 - relevancy_utils - INFO - Starting Ragas scorer initialization...
+2026-01-09 11:38:20,170 - relevancy_utils - DEBUG - ChatGroq LLM initialized.
+2026-01-09 11:38:21,661 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-01-09 11:38:21,661 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-09 11:38:21,663 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-09 11:38:22,353 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-09 11:38:22,385 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-09 11:38:22,683 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-09 11:38:22,702 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-09 11:38:22,934 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-09 11:38:22,991 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-09 11:38:23,246 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-09 11:38:23,766 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-09 11:38:24,031 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-09 11:38:24,101 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-09 11:38:24,359 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-09 11:38:24,456 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-09 11:38:24,748 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-09 11:38:25,041 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-09 11:38:25,592 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-09 11:38:25,897 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-09 11:38:25,916 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-09 11:38:26,146 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-09 11:38:26,387 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-09 11:38:26,433 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-09 11:38:26,661 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6878
+2026-01-09 11:38:26,666 - relevancy_utils - DEBUG - HuggingFace Embeddings initialized.
+2026-01-09 11:38:26,667 - relevancy_utils - INFO - Ragas ResponseRelevancy scorer initialized successfully.
+2026-01-09 11:38:26,668 - faithfulness_utils - INFO - Initializing Faithfulness scorer...
+2026-01-09 11:38:27,426 - faithfulness_utils - INFO - Faithfulness scorer initialized successfully.
+2026-01-09 11:38:27,457 - werkzeug - WARNING -  * Debugger is active!
+2026-01-09 11:38:27,461 - werkzeug - INFO -  * Debugger PIN: 103-783-783
+2026-01-09 12:27:45,088 - routes - INFO - Rendering home page
+2026-01-09 12:27:45,116 - werkzeug - INFO - 127.0.0.1 - - [09/Jan/2026 12:27:45] "GET / HTTP/1.1" 200 -
+2026-01-09 14:03:33,896 - routes - INFO - Rendering home page
+2026-01-09 14:03:33,898 - werkzeug - INFO - 127.0.0.1 - - [09/Jan/2026 14:03:33] "GET / HTTP/1.1" 200 -
+2026-01-09 14:15:15,075 - routes - INFO - Rendering home page
+2026-01-09 14:15:15,076 - werkzeug - INFO - 127.0.0.1 - - [09/Jan/2026 14:15:15] "GET / HTTP/1.1" 200 -
+2026-01-09 14:15:20,653 - routes - INFO - Rendering Note Generator page
+2026-01-09 14:15:20,659 - werkzeug - INFO - 127.0.0.1 - - [09/Jan/2026 14:15:20] "GET /note-generator HTTP/1.1" 200 -
+2026-01-09 14:15:31,809 - routes - INFO - Received request to generate tailored notes
+2026-01-09 14:15:31,819 - file_utils - DEBUG - File 13-queryexecution.pdf allowed: True
+2026-01-09 14:15:31,821 - file_utils - INFO - File saved to: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation\uploads\13-queryexecution.pdf
+2026-01-09 14:15:31,919 - pdf_extraction_util - INFO - Successfully extracted 38407 characters from 13-queryexecution.pdf
+2026-01-09 14:16:03,169 - file_utils - INFO - Cleaned up file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation\uploads\13-queryexecution.pdf
+2026-01-09 14:16:03,170 - werkzeug - INFO - 127.0.0.1 - - [09/Jan/2026 14:16:03] "POST /generate-notes HTTP/1.1" 200 -
+2026-01-09 14:16:03,207 - werkzeug - INFO - 127.0.0.1 - - [09/Jan/2026 14:16:03] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2026-01-09 14:16:21,895 - routes - INFO - Rendering Note Generator page
+2026-01-09 14:16:21,897 - werkzeug - INFO - 127.0.0.1 - - [09/Jan/2026 14:16:21] "GET /note-generator HTTP/1.1" 200 -
+2026-01-09 14:38:46,669 - routes - INFO - Rendering home page
+2026-01-09 14:38:46,670 - werkzeug - INFO - 127.0.0.1 - - [09/Jan/2026 14:38:46] "GET / HTTP/1.1" 200 -
+2026-01-09 16:53:37,265 - routes - INFO - Rendering home page
+2026-01-09 16:53:37,269 - werkzeug - INFO - 127.0.0.1 - - [09/Jan/2026 16:53:37] "GET / HTTP/1.1" 200 -

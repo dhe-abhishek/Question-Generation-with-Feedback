@@ -1,0 +1,355 @@
+
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Coverage Analysis - Adaptive Learning System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #7209b7;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --info: #4895ef;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            margin: 0;
+            padding-top: 60px; /* Space for the fixed header */
+        }
+
+        /* Reusing common styles from home.html */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .main-content {
+            padding: 40px 0;
+            min-height: calc(100vh - 120px); /* Adjust based on header/footer height */
+        }
+
+        h1 {
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .form-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color var(--transition);
+        }
+
+        input[type="file"]:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .btn-primary {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color var(--transition), transform 0.1s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-1px);
+        }
+        
+        /* Loading/Spinner Styles */
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: var(--primary);
+            animation: spin 1s ease infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Flash Message Styles */
+        .flash-messages {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        .flash {
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            border: 1px solid;
+            text-align: center;
+        }
+        .flash-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+        .flash-success {
+            background-color: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+
+        /* Results Table Styles */
+        .results-section {
+            margin-top: 40px;
+        }
+
+        .results-section h2 {
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.75rem;
+        }
+
+        .coverage-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .coverage-table th, .coverage-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .coverage-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .coverage-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .coverage-table tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        .score-cell {
+            font-weight: bold;
+            text-align: center;
+            color: var(--accent);
+        }
+
+        /* Footer styles (reusing from home.html) */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--success);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo"><a href="{{ url_for('main.home') }}">Adaptive Learning System</a></div>
+            <nav>
+                <a href="{{ url_for('main.home') }}" style="color: white; text-decoration: none; margin-left: 15px;">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <h1>Question Coverage Analysis</h1>
+            <p style="text-align: center; margin-bottom: 30px; color: #555;">
+                Upload the context material (PDF) and the generated questions (PDF) to calculate how relevant each question is to the source text using the TF-IDF vectorizer.
+            </p>
+
+            <div class="flash-messages">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="flash flash-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+            <div class="form-card">
+                <form action="{{ url_for('main.calculate_coverage') }}" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="context_file"><i class="fas fa-book"></i> Upload Context Material (PDF):</label>
+                        <input type="file" name="context_file" id="context_file" accept=".pdf" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="questions_file"><i class="fas fa-question-circle"></i> Upload Generated Questions (PDF):</label>
+                        <input type="file" name="questions_file" id="questions_file" accept=".pdf" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-chart-line"></i> Generate Relevance Scores
+                    </button>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            {% if results %}
+            <div class="results-section">
+                <h2>Relevance Scores (TF-IDF Cosine Similarity)</h2>
+                <table class="coverage-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">#</th>
+                            <th style="width: 75%;">Question</th>
+                            <th style="width: 20%; text-align: center;">Relevance Score (0-1)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in results %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ item.question }}</td>
+                            <td class="score-cell" style="color: {% if item.relevance_score >= 0.75 %}green{% elif item.relevance_score >= 0.5 %}orange{% else %}red{% endif %};">
+                                {{ item.relevance_score }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+    
+    <footer>
+        <div class="container footer-bottom">
+            <p>&copy; 2025 Directorate of Higher Education. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function() {
+            document.getElementById('loading-overlay').style.display = 'flex';
+        });
+        
+        // Hide loading screen if page loads with results (e.g., error case)
+        document.addEventListener('DOMContentLoaded', function() {
+            const overlay = document.getElementById('loading-overlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

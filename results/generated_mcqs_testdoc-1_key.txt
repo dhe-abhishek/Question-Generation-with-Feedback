@@ -1,0 +1,50 @@
+--- Question 1 ---
+Bloom's Level: 1 (Remembering)
+Question: What is the name of the main international airport that serves Kathmandu, Nepal?
+Answer: The main international airport serving Kathmandu is the Tribhuvan International Airport.
+
+--- Question 2 ---
+Bloom's Level: 1 (Remembering)
+Question: How far is Tribhuvan International Airport located from the city centre?
+Answer: The airport is located about six kilometers (6 km or 3.7 mi) from the city centre.
+
+--- Question 3 ---
+Bloom's Level: 1 (Remembering)
+Question: Which organization is responsible for operating Tribhuvan International Airport?
+Answer: The airport is operated by the Civil Aviation Authority of Nepal.
+
+--- Question 4 ---
+Bloom's Level: 1 (Remembering)
+Question: How many terminals does the airport have, and what types are they?
+Answer: The airport has two terminals: one domestic and one international.
+
+--- Question 5 ---
+Bloom's Level: 1 (Remembering)
+Question: Approximately how many international airlines connect Nepal to other destinations?
+Answer: About 22 international airlines connect Nepal to other destinations.
+
+--- Question 6 ---
+Bloom's Level: 1 (Remembering)
+Question: To which three continents or regions do international airlines connect Nepal?
+Answer: International airlines connect Nepal to destinations in Europe, Asia, and the Middle East.
+
+--- Question 7 ---
+Bloom's Level: 1 (Remembering)
+Question: In what year did it become possible to fly directly from Amsterdam to Kathmandu?
+Answer: It became possible to fly directly from Amsterdam to Kathmandu in October 2009.
+
+--- Question 8 ---
+Bloom's Level: 1 (Remembering)
+Question: Which airline started connecting Istanbul to Kathmandu in 2013?
+Answer: Turkish Airlines started connecting Istanbul to Kathmandu in 2013.
+
+--- Question 9 ---
+Bloom's Level: 1 (Remembering)
+Question: List three of the regional Nepali airlines that operate from the city.
+Answer: Three regional Nepali airlines are Agni Air, Buddha Air, and Cosmic Air. Nepal Airlines and Yeti Airlines are also correct answers.
+
+--- Question 10 ---
+Bloom's Level: 1 (Remembering)
+Question: Name two cities mentioned in the text that are connected to Nepal by international flights.
+Answer: Two cities connected to Nepal are Istanbul and Delhi. Other correct answers include Kolkata, Singapore, Bangkok, Kuala Lumpur, Dhaka, Islamabad, Paro, Lhasa, Chengdu, and Guangzhou.
+

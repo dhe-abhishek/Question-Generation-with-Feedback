@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom Level Checker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        h1:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        input[type="text"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="file"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .file-input-container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+            cursor: pointer;
+        }
+        .file-input-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .file-input-label:hover {
+            border-color: #3498db;
+            background-color: #e8f4fd;
+        }
+        .file-input-label.dragover {
+            border-color: #3498db;
+            background-color: #e8f4fd;
+            transform: scale(1.02);
+        }
+        .file-icon {
+            font-size: 40px;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        .file-text {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+        .file-name {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        .file-input-container input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        button {
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 17px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(52, 152, 219, 0.4);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .flash-messages {
+            margin-bottom: 20px;
+        }
+        .flash-message {
+            padding: 12px 15px;
+            background-color: #ffeaa7;
+            color: #d35400;
+            border-left: 4px solid #f39c12;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        .form-hint {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        .blooms-info {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .blooms-info h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .blooms-info ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        .blooms-info li {
+            margin-bottom: 5px;
+            color: #7f8c8d;
+        }
+        .required-field::after {
+            content: " *";
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bloom's Level Checker</h1>
+        
+        <!-- Flash messages -->
+        <div class="flash-messages">
+            <!-- Example flash message (would be dynamically generated in a real app) -->
+            <div class="flash-message">Please upload a valid document file (PDF, TXT, DOCX)</div>
+        </div>
+        
+        <form action="/check-blooms-level" method="POST" enctype="multipart/form-data" id="bloomsForm">
+            <div class="form-group">
+                <label for="file" class="required-field">Upload your document:</label>
+                <div class="file-input-container">
+                    <div class="file-input-label" id="fileInputLabel">
+                        <div class="file-icon">📄</div>
+                        <div class="file-text">Click to browse or drag and drop your file</div>
+                        <div class="file-name" id="file-name">No file selected</div>
+                    </div>
+                    <input type="file" name="file" id="file" required accept=".pdf,.txt,.docx">
+                </div>
+                <p class="form-hint">Supported formats: PDF, TXT, and DOCX files</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="question" class="required-field">Question Topic:</label>
+                <textarea name="question" id="question" placeholder="Enter the topic or question you want to check for blooms level.." required></textarea>
+                <p class="form-hint">Specify the subject or topic for question generation</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="model_choice" class="required-field">Select Model:</label>
+                <select name="model_choice" required>
+                    {% for name, id in models.items() %}
+                        <option value="{{ name }}">{{ name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="blooms_level" class="required-field">Bloom's Taxonomy Level:</label>
+                <select name="blooms_level" required>
+                    <option value="">-- Select a level --</option>
+                    <option value="remember">Remembering</option>
+                    <option value="understand">Understanding</option>
+                    <option value="apply">Applying</option>
+                    <option value="analyze">Analyzing</option>
+                    <option value="evaluate">Evaluating</option>
+                    <option value="create">Creating</option>
+                </select>
+                <p class="form-hint">Select the cognitive complexity level for questions</p>
+            </div>
+            
+            <button type="submit">Check Question Level</button>
+        </form>
+
+        <div class="blooms-info">
+            <h3>About Bloom's Taxonomy</h3>
+            <ul>
+                <li><strong>Remembering</strong>: Recall facts and basic concepts</li>
+                <li><strong>Understanding</strong>: Explain ideas or concepts</li>
+                <li><strong>Applying</strong>: Use information in new situations</li>
+                <li><strong>Analyzing</strong>: Draw connections among ideas</li>
+                <li><strong>Evaluating</strong>: Justify a stand or decision</li>
+                <li><strong>Creating</strong>: Produce new or original work</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // File input handling
+        const fileInput = document.getElementById('file');
+        const fileName = document.getElementById('file-name');
+        const fileInputLabel = document.getElementById('fileInputLabel');
+        const form = document.getElementById('mcqForm');
+        
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                fileName.textContent = this.files[0].name;
+            } else {
+                fileName.textContent = 'No file selected';
+            }
+        });
+        
+        // Drag and drop functionality
+        fileInputLabel.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.classList.add('dragover');
+        });
+        
+        fileInputLabel.addEventListener('dragleave', function() {
+            this.classList.remove('dragover');
+        });
+        
+        fileInputLabel.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('dragover');
+            
+            if (e.dataTransfer.files.length > 0) {
+                fileInput.files = e.dataTransfer.files;
+                fileName.textContent = e.dataTransfer.files[0].name;
+                
+                // Create a change event to trigger validation
+                const event = new Event('change');
+                fileInput.dispatchEvent(event);
+            }
+        });
+        
+        // Form validation
+        form.addEventListener('submit', function(e) {
+            let valid = true;
+            const requiredFields = form.querySelectorAll('[required]');
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    valid = false;
+                    field.style.borderColor = '#e74c3c';
+                    
+                    // Add error message if doesn't exist
+                    if (!field.nextElementSibling || !field.nextElementSibling.classList.contains('error-message')) {
+                        const errorMsg = document.createElement('p');
+                        errorMsg.className = 'error-message';
+                        errorMsg.style.color = '#e74c3c';
+                        errorMsg.style.fontSize = '13px';
+                        errorMsg.style.marginTop = '5px';
+                        errorMsg.textContent = 'This field is required';
+                        field.parentNode.insertBefore(errorMsg, field.nextSibling);
+                    }
+                } else {
+                    field.style.borderColor = '#ddd';
+                    
+                    // Remove error message if exists
+                    if (field.nextElementSibling && field.nextElementSibling.classList.contains('error-message')) {
+                        field.nextElementSibling.remove();
+                    }
+                }
+            });
+            
+            if (!valid) {
+                e.preventDefault();
+                
+                // Show a flash message
+                const flashMessages = document.querySelector('.flash-messages');
+                flashMessages.innerHTML = '<div class="flash-message">Please fill in all required fields</div>';
+            }
+        });
+    </script>
+</body>
+</html>

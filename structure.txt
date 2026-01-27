@@ -1,0 +1,26 @@
+
+├───app
+│   ├───services
+│   │   └───mcq_service.py
+│   |   └───pdf_generation.py
+│   |   └───pdf_parser_service.py
+|   |   └───question_generation.py  
+|   |   └───answer_generation_service.py  
+│   ├───templates
+│       └───home.html
+|       └───index.html
+|       └───results.html
+|       └───answer_generator.html
+|       └───evaluation_results.html
+├───logs
+├───results
+├───uploads
+├───utils
+│   └───__pycache__
+|   └───file_utils.py
+|   └───json_utils.py
+|   └───logger.py
+|   └───validation.py
+|  
+├───venv
+└───__pycache__

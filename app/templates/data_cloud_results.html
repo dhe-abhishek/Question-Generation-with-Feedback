@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Data Cloud Results</title>
+</head>
+<body>
+    <h1>Word Cloud Visualization</h1>
+    
+    {% if cloud_filename %}
+        <div style="text-align: center;">
+            <img 
+                src="{{ url_for('main.download_file', filename=cloud_filename) }}" 
+                alt="Generated Word Cloud"
+                style="max-width: 80%; height: auto; border: 1px solid #ccc;"
+            >
+            <p>Generated image: <strong>{{ cloud_filename }}</strong></p>
+            <a href="{{ url_for('main.download_file', filename=cloud_filename) }}" download>Download Image</a>
+        </div>
+    {% else %}
+        <p>No visualization image was generated.</p>
+    {% endif %}
+
+    {% if cloud_data and cloud_data.frequency_data %}
+        <h2>Top Keywords</h2>
+        {% endif %}
+
+    <p><a href="{{ url_for('main.data_cloud') }}">Generate Another Data Cloud</a></p>
+</body>
+</html>

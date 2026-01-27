@@ -1,0 +1,25 @@
+--- Question 1 ---
+Bloom's Level: 2 (Understanding)
+Question: Hash tables are [BLANK] data structures.
+Answer: Unordered
+
+--- Question 2 ---
+Bloom's Level: 2 (Understanding)
+Question: A hash table uses a [BLANK] to compute an offset into its array for a given key.
+Answer: hash function
+
+--- Question 3 ---
+Bloom's Level: 2 (Understanding)
+Question: In a DBMS, two critical properties of a hash function are being fast and having a [BLANK].
+Answer: low collision rate
+
+--- Question 4 ---
+Bloom's Level: 2 (Understanding)
+Question: Linear Probe Hashing resolves collisions by [BLANK] for the next free slot in the table.
+Answer: linearly searching
+
+--- Question 5 ---
+Bloom's Level: 2 (Understanding)
+Question: [BLANK] hash tables incrementally resize themselves as needed.
+Answer: Dynamic
+

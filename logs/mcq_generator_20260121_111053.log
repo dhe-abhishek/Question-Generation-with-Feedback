@@ -1,0 +1,6 @@
+2026-01-21 11:10:54,808 - matplotlib - DEBUG - matplotlib data path: D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\matplotlib\mpl-data
+2026-01-21 11:10:54,819 - matplotlib - DEBUG - CONFIGDIR=C:\Users\Administrator\.matplotlib
+2026-01-21 11:10:54,821 - matplotlib - DEBUG - interactive is False
+2026-01-21 11:10:54,821 - matplotlib - DEBUG - platform is win32
+2026-01-21 11:10:54,876 - matplotlib - DEBUG - CACHEDIR=C:\Users\Administrator\.matplotlib
+2026-01-21 11:10:54,879 - matplotlib.font_manager - DEBUG - Using fontManager instance from C:\Users\Administrator\.matplotlib\fontlist-v390.json

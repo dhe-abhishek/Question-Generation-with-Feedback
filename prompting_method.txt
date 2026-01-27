@@ -1,0 +1,3 @@
+Incorporating Constraint-Based Prompting, Self-Correction (Chain-of-Thought), and a strict JSON output requirement to maximize accuracy and consistency.
+
+Stratergy Pattern (Design Pattern) is used for making it easy to add or remove new LLM models by simply creating a new class and registering it in a configuration dictionary.

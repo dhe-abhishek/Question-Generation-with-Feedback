@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faithfulness Checker | Anti-Hallucination Tool</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body { background-color: #f8f9fa; }
+        .tracking-wider { letter-spacing: 0.1rem; }
+        .card { transition: all 0.3s ease; border-radius: 12px; }
+        textarea.form-control:focus { border-color: #198754; box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25); }
+        .result-card { border: none; }
+        .score-circle-text { font-size: 4rem; line-height: 1; }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="d-flex align-items-center mb-4">
+                <div class="bg-success text-white rounded-circle p-3 me-3">
+                    <i class="fas fa-shield-alt fa-2x"></i>
+                </div>
+                <div>
+                    <h2 class="mb-0">Faithfulness Checker</h2>
+                    <p class="text-muted">Verify if the answer is derived strictly from the source context.</p>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <div class="mb-4">
+                        <label for="question" class="form-label fw-bold">User Question</label>
+                        <input type="text" id="question" class="form-control form-control-lg" placeholder="What did the user ask?">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="context" class="form-label fw-bold">Retrieved Context (The Source)</label>
+                        <textarea id="context" class="form-control" rows="6" 
+                            placeholder="Paste the reference document or data here..."></textarea>
+                        <div class="form-text">The AI's answer will be compared against this text to check for hallucinations.</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="answer" class="form-label fw-bold">Generated Answer</label>
+                        <textarea id="answer" class="form-control" rows="4" 
+                            placeholder="Paste the AI-generated response here..."></textarea>
+                    </div>
+
+                    <button id="check-btn" class="btn btn-success btn-lg w-100 shadow-sm">
+                        <i class="fas fa-microscope me-2"></i>Analyze Faithfulness
+                    </button>
+                </div>
+            </div>
+
+            <div id="result-container" class="d-none">
+                <div class="card result-card shadow-lg overflow-hidden">
+                    <div class="card-header bg-white py-3">
+                        <h5 class="mb-0 text-center text-uppercase text-muted small fw-bold tracking-wider">Analysis Result</h5>
+                    </div>
+                    <div class="card-body p-5 text-center">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <div id="score-circle" class="score-circle-text fw-bold mb-0">0.0</div>
+                                <p class="text-muted text-uppercase small fw-bold">Faithfulness Score</p>
+                            </div>
+                            <div class="col-md-8 text-start border-start ps-4">
+                                <h4 id="status-heading" class="mb-2">Analysis Complete</h4>
+                                <p id="interpretation-text" class="lead text-muted mb-4"></p>
+                                
+                                <div class="progress mb-2" style="height: 12px;">
+                                    <div id="score-progress" class="progress-bar progress-bar-striped progress-bar-animated" 
+                                         role="progressbar" style="width: 0%"></div>
+                                </div>
+                                <div class="d-flex justify-content-between small text-muted">
+                                    <span>Likely Hallucination</span>
+                                    <span>Perfectly Faithful</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-light p-3">
+                        <small class="text-muted">
+                            <i class="fas fa-info-circle me-1"></i> 
+                            <strong>Metric Explanation:</strong> This score represents the percentage of claims in the answer that are explicitly supported by the context. A score of 1.0 means 100% faithfulness.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('check-btn').addEventListener('click', async () => {
+    const question = document.getElementById('question').value;
+    const context = document.getElementById('context').value;
+    const answer = document.getElementById('answer').value;
+    const btn = document.getElementById('check-btn');
+    const resultContainer = document.getElementById('result-container');
+
+    if (!question || !context || !answer) {
+        alert("Please provide the question, context, and answer.");
+        return;
+    }
+
+    // Set UI to Loading
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-grow spinner-grow-sm me-2"></span> Comparing Claims...';
+    resultContainer.classList.add('d-none');
+
+    try {
+        const response = await fetch('/calculate-faithfulness', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question, context, answer })
+        });
+
+        const data = await response.json();
+        if (data.error) throw new Error(data.error);
+
+        const score = parseFloat(data.score);
+        
+        // UI Updates
+        resultContainer.classList.remove('d-none');
+        document.getElementById('score-circle').innerText = score.toFixed(2);
+        document.getElementById('score-progress').style.width = (score * 100) + '%';
+
+        const statusHeading = document.getElementById('status-heading');
+        const interpretationText = document.getElementById('interpretation-text');
+        const scoreCircle = document.getElementById('score-circle');
+        const progressBar = document.getElementById('score-progress');
+
+        // Dynamic Color Logic
+        if (score >= 0.8) {
+            statusHeading.innerHTML = '<span class="text-success">✅ High Faithfulness</span>';
+            interpretationText.innerText = "Excellent! The answer is strongly supported by the provided source documents.";
+            scoreCircle.className = "score-circle-text fw-bold mb-0 text-success";
+            progressBar.className = "progress-bar bg-success";
+        } else if (score >= 0.5) {
+            statusHeading.innerHTML = '<span class="text-warning">⚠️ Partial Hallucination</span>';
+            interpretationText.innerText = "Caution: Some parts of the answer cannot be verified against the context.";
+            scoreCircle.className = "score-circle-text fw-bold mb-0 text-warning";
+            progressBar.className = "progress-bar bg-warning";
+        } else {
+            statusHeading.innerHTML = '<span class="text-danger">🚨 Hallucination Alert</span>';
+            interpretationText.innerText = "Warning: The answer largely ignores or contradicts the provided source context.";
+            scoreCircle.className = "score-circle-text fw-bold mb-0 text-danger";
+            progressBar.className = "progress-bar bg-danger";
+        }
+
+        resultContainer.scrollIntoView({ behavior: 'smooth' });
+
+    } catch (err) {
+        alert("Evaluation Error: " + err.message);
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-microscope me-2"></i>Analyze Faithfulness';
+    }
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

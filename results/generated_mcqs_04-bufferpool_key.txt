@@ -1,0 +1,50 @@
+--- Question 1 ---
+Bloom's Level: 3 (Applying)
+Question: A DBMS buffer pool has 4 frames. Frame 1 holds Page A, Frame 2 holds Page B, Frame 3 holds Page C. Frame 4 is currently empty. If the Execution Engine requests Page D, which is not currently in the buffer pool, where will Page D be placed?
+Options:
+  A) A. Frame 1, replacing Page A.
+  B) B. Frame 2, replacing Page B.
+  C) C. Frame 4, an empty frame.
+  D) D. The request will cause a stall as all frames are implicitly full.
+Answer: C
+
+--- Question 2 ---
+Bloom's Level: 3 (Applying)
+Question: A buffer pool uses the LRU replacement policy and has a capacity of 3 pages. The current state of the buffer pool from least recently used to most recently used is [Page C, Page B, Page A]. If the DBMS then accesses Page B, followed by a request for Page D (which is not currently in the buffer pool), which page will be evicted to make space for Page D?
+Options:
+  A) A. Page A
+  B) B. Page B
+  C) C. Page C
+  D) D. Page D is added without eviction as it's the newest.
+Answer: C
+
+--- Question 3 ---
+Bloom's Level: 3 (Applying)
+Question: A DBMS is using the CLOCK replacement policy for its buffer pool, which has 4 frames organized in a circular buffer. The current state is: Frame 1 (Page A, ref=1), Frame 2 (Page B, ref=0), Frame 3 (Page C, ref=1), Frame 4 (Page D, ref=0). The 'clock hand' is currently pointing at Frame 1 (Page A). If a new Page E needs to be loaded into the buffer pool, which page will be evicted?
+Options:
+  A) A. Page A
+  B) B. Page B
+  C) C. Page C
+  D) D. Page D
+Answer: B
+
+--- Question 4 ---
+Bloom's Level: 3 (Applying)
+Question: In a DBMS employing the Adaptive Replacement Cache (ARC) policy, a requested page is not found in either the Recent List (T1) or the Frequent List (T2). However, it is found in the Frequent Ghost List (B2). Based on the ARC lookup protocol, what is the immediate consequence of this event?
+Options:
+  A) A. The target size parameter 'p' will be increased, and the page will be inserted into T1.
+  B) B. The target size parameter 'p' will be decreased, and the page will be moved into T2.
+  C) C. The page will be evicted from B2, and a new page will be inserted into T1.
+  D) D. The page will be promoted to T2, and 'p' will remain unchanged.
+Answer: B
+
+--- Question 5 ---
+Bloom's Level: 3 (Applying)
+Question: A database system is configured to use multiple buffer pools to manage memory. An execution engine requests a page with a specific page ID (e.g., Page ID 123). If the system does NOT use an object identifier embedded in record IDs to determine which buffer pool to use, how would it typically decide which of its multiple buffer pools to access for this requested page?
+Options:
+  A) A. By searching all available buffer pools sequentially until the page is found.
+  B) B. By hashing the page ID to determine the target buffer pool.
+  C) C. By assigning the page to the buffer pool with the most free frames.
+  D) D. By using a round-robin assignment to distribute pages across buffer pools.
+Answer: B
+

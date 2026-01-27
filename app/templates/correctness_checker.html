@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer Correctness Checker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="d-flex align-items-center mb-4 text-primary">
+                <i class="fas fa-check-double fa-2x me-3"></i>
+                <h2>Answer Correctness Checker</h2>
+            </div>
+
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-body p-4">
+                    <div class="mb-3">
+                        <label class="fw-bold">Question</label>
+                        <input type="text" id="question" class="form-control" placeholder="The Applying-level question...">
+                    </div>
+                    <div class="mb-3">
+                        <label class="fw-bold">Ground Truth (The Perfect Answer)</label>
+                        <textarea id="ground_truth" class="form-control" rows="4" placeholder="Enter the reference answer..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="fw-bold">Student/AI Answer</label>
+                        <textarea id="answer" class="form-control" rows="4" placeholder="Enter the answer to be graded..."></textarea>
+                    </div>
+                    <button id="btn" class="btn btn-primary w-100">Calculate Correctness</button>
+                </div>
+            </div>
+
+            <div id="res" class="d-none card text-center p-5 shadow-lg">
+                <h4 class="text-muted">Final Correctness Score</h4>
+                <div id="score" class="display-1 fw-bold text-primary">0.0</div>
+                <div class="progress mt-3"><div id="bar" class="progress-bar" style="width: 0%"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('btn').addEventListener('click', async () => {
+    const btn = document.getElementById('btn');
+    btn.disabled = true;
+    btn.innerText = "Evaluating...";
+    
+    const payload = {
+        question: document.getElementById('question').value,
+        ground_truth: document.getElementById('ground_truth').value,
+        answer: document.getElementById('answer').value
+    };
+
+    const response = await fetch('/calculate-correctness', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+    });
+
+    const data = await response.json();
+    document.getElementById('res').classList.remove('d-none');
+    document.getElementById('score').innerText = data.score;
+    document.getElementById('bar').style.width = (data.score * 100) + '%';
+    btn.disabled = false;
+    btn.innerText = "Calculate Correctness";
+});
+</script>
+</body>
+</html>

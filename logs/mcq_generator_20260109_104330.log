@@ -1,0 +1,63 @@
+2026-01-09 10:43:31,023 - matplotlib - DEBUG - matplotlib data path: D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\matplotlib\mpl-data
+2026-01-09 10:43:31,032 - matplotlib - DEBUG - CONFIGDIR=C:\Users\Administrator\.matplotlib
+2026-01-09 10:43:31,033 - matplotlib - DEBUG - interactive is False
+2026-01-09 10:43:31,033 - matplotlib - DEBUG - platform is win32
+2026-01-09 10:43:31,068 - matplotlib - DEBUG - CACHEDIR=C:\Users\Administrator\.matplotlib
+2026-01-09 10:43:31,070 - matplotlib.font_manager - DEBUG - Using fontManager instance from C:\Users\Administrator\.matplotlib\fontlist-v390.json
+2026-01-09 10:43:42,445 - datasets - DEBUG - PyTorch version 2.9.0 available.
+2026-01-09 10:43:44,988 - ragas._analytics - DEBUG - Starting AnalyticsBatcher thread with interval 10 seconds
+2026-01-09 10:43:45,677 - relevancy_utils - INFO - Starting Ragas scorer initialization...
+2026-01-09 10:43:46,034 - relevancy_utils - DEBUG - ChatGroq LLM initialized.
+2026-01-09 10:43:47,095 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-01-09 10:43:47,095 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-09 10:43:47,096 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-09 10:43:55,935 - huggingface_hub.utils._http - WARNING - '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000247D8A1EBA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"), '(Request ID: d90824c3-3a65-47cf-b849-49f17da71ab7)')' thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/./modules.json
+2026-01-09 10:43:55,936 - huggingface_hub.utils._http - WARNING - Retrying in 1s [Retry 1/5].
+2026-01-09 10:43:56,938 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (2): huggingface.co:443
+2026-01-09 10:44:05,911 - huggingface_hub.utils._http - WARNING - '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000247D8AF2210>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"), '(Request ID: 855d150b-2d2a-47d9-85e4-0c549559e7b0)')' thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/./modules.json
+2026-01-09 10:44:05,914 - huggingface_hub.utils._http - WARNING - Retrying in 2s [Retry 2/5].
+2026-01-09 10:44:07,917 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (3): huggingface.co:443
+2026-01-09 10:44:17,756 - huggingface_hub.utils._http - WARNING - '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000247D8AF2710>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"), '(Request ID: f5060ba3-ca11-4cd4-8610-7052fb627d4a)')' thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/./modules.json
+2026-01-09 10:44:17,757 - huggingface_hub.utils._http - WARNING - Retrying in 4s [Retry 3/5].
+2026-01-09 10:44:21,759 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (4): huggingface.co:443
+2026-01-09 10:44:30,859 - huggingface_hub.utils._http - WARNING - '(MaxRetryError("HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000247D8AF2990>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"), '(Request ID: 73357852-45e0-40a4-8f62-76238852f0b7)')' thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/./modules.json
+2026-01-09 10:44:30,859 - huggingface_hub.utils._http - WARNING - Retrying in 8s [Retry 4/5].
+2026-01-09 10:44:38,862 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (5): huggingface.co:443
+2026-01-09 10:44:39,552 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-09 10:44:39,557 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-09 10:44:40,275 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-09 10:44:40,511 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-09 10:44:40,740 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-09 10:44:40,973 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-09 10:44:40,996 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-09 10:44:41,231 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-09 10:44:41,449 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-09 10:44:41,671 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-09 10:44:41,691 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-09 10:44:41,922 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-09 10:44:42,153 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-09 10:44:42,389 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-09 10:44:42,618 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-09 10:44:42,854 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-09 10:44:43,276 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-09 10:44:43,494 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-09 10:44:43,722 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-09 10:44:44,030 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-09 10:44:44,257 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-09 10:44:44,480 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6878
+2026-01-09 10:44:44,491 - relevancy_utils - DEBUG - HuggingFace Embeddings initialized.
+2026-01-09 10:44:44,492 - relevancy_utils - INFO - Ragas ResponseRelevancy scorer initialized successfully.
+2026-01-09 10:44:44,494 - faithfulness_utils - INFO - Initializing Faithfulness scorer...
+2026-01-09 10:44:45,018 - faithfulness_utils - INFO - Faithfulness scorer initialized successfully.
+2026-01-09 10:44:45,048 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.108:5000
+2026-01-09 10:44:45,049 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-09 10:44:45,051 - werkzeug - INFO -  * Restarting with stat
+2026-01-09 10:52:11,620 - werkzeug - INFO -  * Restarting with stat
+2026-01-09 11:25:47,255 - werkzeug - INFO -  * Restarting with stat
+2026-01-09 11:26:55,249 - werkzeug - INFO -  * Restarting with stat
+2026-01-09 11:30:53,613 - werkzeug - INFO -  * Restarting with stat
+2026-01-09 11:38:07,737 - werkzeug - INFO -  * Restarting with stat
+2026-01-09 17:34:22,825 - ragas._analytics - DEBUG - AnalyticsBatcher shutdown complete

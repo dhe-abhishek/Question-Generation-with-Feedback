@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloomMind AI | Adaptive Learning System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary: #5d5fef;
+            --secondary: #4f46e5;
+            --accent: #8b5cf6;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            --hover-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Neural Network Canvas */
+        #neural-network {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(93, 95, 239, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            padding: 10px 16px;
+            border-radius: 10px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: white;
+            background: rgba(93, 95, 239, 0.15);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            border-radius: 3px;
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 80%;
+        }
+
+        .ai-badge {
+            background: var(--gradient-2);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 10px;
+            box-shadow: 0 5px 15px rgba(240, 147, 251, 0.3);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 5px 15px rgba(240, 147, 251, 0.3); }
+            to { box-shadow: 0 5px 25px rgba(240, 147, 251, 0.5); }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            background: linear-gradient(to right, #ffffff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 18px 36px;
+            border-radius: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            font-size: 1.05rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px) scale(1.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Neural Activity Indicator - Fixed */
+        .neural-activity {
+            margin-top: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .activity-indicator {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(93, 95, 239, 0.1);
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(93, 95, 239, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .activity-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .activity-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            animation: neuralPulse 1.5s infinite;
+        }
+
+        .activity-dot:nth-child(2) { animation-delay: 0.2s; }
+        .activity-dot:nth-child(3) { animation-delay: 0.4s; }
+        .activity-dot:nth-child(4) { animation-delay: 0.6s; }
+        .activity-dot:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes neuralPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        .activity-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            position: relative;
+            color: white;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: var(--gradient-1);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+        }
+
+        /* Enhanced Feature Cards with Hover Effects */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(93, 95, 239, 0.1), rgba(139, 92, 246, 0.05));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 40px 80px rgba(93, 95, 239, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(93, 95, 239, 0.5);
+        }
+
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+
+        .feature-card .neural-connection {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .feature-card:hover .neural-connection {
+            opacity: 0.1;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card:hover .feature-title {
+            transform: translateX(5px);
+            background: linear-gradient(to right, #ffffff, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 25px;
+            line-height: 1.7;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card:hover .feature-description {
+            color: rgba(255, 255, 255, 0.9);
+            transform: translateX(3px);
+        }
+
+        .feature-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b5cf6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 2;
+            padding: 10px 20px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .feature-card:hover .feature-link {
+            gap: 15px;
+            color: #a78bfa;
+            background: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .feature-link i {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-link i {
+            transform: translateX(5px);
+        }
+
+        /* Neural Connection Animation for Cards */
+        .neural-connection-line {
+            position: absolute;
+            background: var(--gradient-1);
+            height: 2px;
+            border-radius: 1px;
+            transform-origin: left center;
+            opacity: 0;
+        }
+
+        .feature-card:hover .neural-connection-line {
+            animation: neuralConnect 1s ease forwards;
+        }
+
+        @keyframes neuralConnect {
+            0% {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scaleX(1);
+            }
+        }
+
+        /* Dashboard Preview */
+        .dashboard-preview {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 100px 0;
+            border-radius: 40px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(93, 95, 239, 0.2);
+        }
+
+        .dashboard-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(93, 95, 239, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
+
+        .dashboard-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .dashboard-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .dashboard-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 50px;
+        }
+
+        .dashboard-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(93, 95, 239, 0.1), rgba(139, 92, 246, 0.05));
+            border-radius: 20px;
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dashboard-image::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 255, 255, 0.02) 20px,
+                rgba(255, 255, 255, 0.02) 40px
+            );
+            animation: moveBg 30s linear infinite;
+        }
+
+        @keyframes moveBg {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .dashboard-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #f093fb, #f5576c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.95);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+            border-top: 1px solid rgba(93, 95, 239, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-1);
+            border-radius: 3px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+
+        .footer-links li:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-links i {
+            font-size: 0.9rem;
+            width: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Bloom's Taxonomy Section */
+        .blooms-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .taxonomy-visualization {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 15px;
+        }
+
+        .taxonomy-level {
+            width: 100%;
+            padding: 25px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .taxonomy-level:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(93, 95, 239, 0.3);
+            box-shadow: 0 10px 30px rgba(93, 95, 239, 0.2);
+        }
+
+        .taxonomy-level::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 6px;
+            background: var(--gradient-1);
+        }
+
+        .level-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            margin-right: 20px;
+        }
+
+        .level-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            flex-grow: 1;
+        }
+
+        .level-icon {
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .taxonomy-level:hover .level-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-stats {
+                flex-wrap: wrap;
+            }
+            
+            .taxonomy-level {
+                padding: 20px 30px;
+            }
+            
+            .neural-activity {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Neural Network Background -->
+    <canvas id="neural-network"></canvas>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="logo-text">Bloom<span>Mind</span> AI</div>
+                <!-- <div class="ai-badge">Neural Network Active</div> -->
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> Learning</a></li>
+                    <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Adaptive Learning System Through Bloom's Taxonomy</h1>
+            <p class="hero-subtitle">An intelligent educational platform that leverages AI neural networks and Bloom's Taxonomy to create personalized learning experiences, generate assessments, and track learner progress with advanced analytics.</p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Start Learning Journey
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-play-circle"></i> Watch Demo
+                </a>
+            </div>
+            <!-- Fixed Neural Activity Indicator -->
+            <!-- <div class="neural-activity">
+                <div class="activity-indicator">
+                    <div class="activity-dots">
+                        <div class="activity-dot"></div>
+                        <div class="activity-dot"></div>
+                        <div class="activity-dot"></div>
+                        <div class="activity-dot"></div>
+                        <div class="activity-dot"></div>
+                    </div>
+                    <span class="activity-text">Neural Network Processing Active</span>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+   
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">AI-Powered Features</h2>
+            <div class="features-grid">
+                <!-- Question Generator -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: var(--gradient-1);">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3 class="feature-title">AI Question Generator</h3>
+                    <p class="feature-description">Create questions automatically based on learning objectives and Bloom's Taxonomy levels. Customize difficulty and topics with AI assistance.</p>
+                    <a href="{{ url_for('main.question_generator') }}" class="feature-link">
+                        Generate Questions <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <!-- Neural connection lines -->
+                    <div class="neural-connection">
+                        <div class="neural-connection-line" style="top: 40px; left: 20px; width: 50px; transform: rotate(45deg); animation-delay: 0.1s;"></div>
+                        <div class="neural-connection-line" style="top: 80px; right: 20px; width: 60px; transform: rotate(-30deg); animation-delay: 0.3s;"></div>
+                        <div class="neural-connection-line" style="bottom: 40px; left: 30px; width: 70px; transform: rotate(15deg); animation-delay: 0.5s;"></div>
+                    </div>
+                </div>
+
+                <!-- Quiz Generator -->
+                <div class="feature-card">
+                    <div class="neural-connection"></div>
+                    <div class="feature-icon" style="background: var(--gradient-4);">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="feature-title">Generate Quiz</h3>
+                    <p class="feature-description">
+                        Convert your generated MCQ and Fill-in-the-Blank documents into an interactive, real-time quiz for immediate assessment.
+                    </p>
+                    <a href="{{ url_for('main.generate_quiz') }}" class="feature-link">
+                        Launch Quiz <i class="fas fa-play"></i>
+                    </a>
+                </div>
+
+                <!-- Bloom's Level Checker -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: var(--gradient-2);">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="feature-title">Bloom's Level Checker</h3>
+                    <p class="feature-description">Analyze educational content and determine its cognitive level according to Bloom's Taxonomy. Ensure proper distribution of cognitive demands.</p>
+                    <a href="{{ url_for('main.blooms_checker') }}" class="feature-link">
+                        Check Levels <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="neural-connection">
+                        <div class="neural-connection-line" style="top: 40px; left: 20px; width: 50px; transform: rotate(45deg); animation-delay: 0.2s;"></div>
+                        <div class="neural-connection-line" style="top: 80px; right: 20px; width: 60px; transform: rotate(-30deg); animation-delay: 0.4s;"></div>
+                    </div>
+                </div>
+
+                <!-- Data Cloud -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: var(--gradient-3);">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Generate Data Cloud</h3>
+                    <p class="feature-description">Visualize your data with interactive charts and reports to identify trends and make data-driven instructional decisions.</p>
+                    <a href="{{ url_for('main.data_cloud') }}" class="feature-link">
+                        View Insights <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="neural-connection">
+                        <div class="neural-connection-line" style="top: 40px; left: 20px; width: 50px; transform: rotate(45deg); animation-delay: 0.3s;"></div>
+                        <div class="neural-connection-line" style="bottom: 40px; left: 30px; width: 70px; transform: rotate(15deg); animation-delay: 0.6s;"></div>
+                    </div>
+                </div>
+
+                <!-- Answer Generation -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: var(--gradient-4);">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Answer Generation</h3>
+                    <p class="feature-description">Generate answers based on the given context as per Bloom's Taxonomy with AI-powered accuracy and relevance scoring.</p>
+                    <a href="{{ url_for('main.answer_generator_ui') }}" class="feature-link">
+                        Generate Answer <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="neural-connection">
+                        <div class="neural-connection-line" style="top: 60px; left: 40px; width: 40px; transform: rotate(60deg); animation-delay: 0.1s;"></div>
+                        <div class="neural-connection-line" style="bottom: 60px; right: 40px; width: 40px; transform: rotate(-60deg); animation-delay: 0.4s;"></div>
+                    </div>
+                </div>
+
+                <!-- Notes Generation -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: var(--gradient-3);">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="feature-title">AI Note Generator</h3>
+                    <p class="feature-description">Generate comprehensive notes tailored to Average, Intermediate, or Advanced learners from your PDF documents.</p>
+                    <a href="{{ url_for('main.note_generator_ui') }}" class="feature-link">
+                        Generate Notes <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Question Generation Analytics -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="feature-title">Question Generation Analytics</h3>
+                    <p class="feature-description">Align learning activities and assessments with specific educational outcomes. Track and measure achievement of learning objectives.</p>
+                    <a href="{{ url_for('main.question_evaluator') }}" class="feature-link">
+                        Explore Analytics <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="neural-connection">
+                        <div class="neural-connection-line" style="top: 40px; right: 20px; width: 50px; transform: rotate(-45deg); animation-delay: 0.2s;"></div>
+                        <div class="neural-connection-line" style="bottom: 40px; left: 30px; width: 70px; transform: rotate(15deg); animation-delay: 0.5s;"></div>
+                    </div>
+                </div>
+
+                <!-- Question Coverage Analysis -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="feature-title">Question Coverage Analysis</h3>
+                    <p class="feature-description">Quantify the relevance and coverage of generated questions against the source context using TF-IDF and Cosine Similarity.</p>
+                    <a href="{{ url_for('main.question_coverage_analysis_ui') }}" class="feature-link">
+                        Generate Analysis <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="neural-connection">
+                        <div class="neural-connection-line" style="top: 50px; left: 25px; width: 45px; transform: rotate(30deg); animation-delay: 0.3s;"></div>
+                        <div class="neural-connection-line" style="top: 90px; right: 25px; width: 55px; transform: rotate(-20deg); animation-delay: 0.6s;"></div>
+                    </div>
+                </div>
+
+                <!-- Answer Relevancy Analysis -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="feature-title">Answer Relevancy Analysis</h3>
+                    <p class="feature-description">Quantify the semantic relevance between a generated answer and the user's question using advanced RAG metrics.</p>
+                    <a href="{{ url_for('main.answer_relevancy_checker_ui') }}" class="feature-link">
+                        Generate Analysis <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="neural-connection">
+                        <div class="neural-connection-line" style="top: 40px; left: 20px; width: 50px; transform: rotate(45deg); animation-delay: 0.1s;"></div>
+                        <div class="neural-connection-line" style="bottom: 40px; right: 20px; width: 50px; transform: rotate(-45deg); animation-delay: 0.4s;"></div>
+                    </div>
+                </div>
+
+                <!-- Faithfulness Checker -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Faithfulness (Anti-Hallucination)</h3>
+                    <p class="feature-description">Ensure the answer is supported by the context. Detect and prevent AI hallucination with advanced verification algorithms.</p>
+                    <a href="{{ url_for('main.faithfulness_checker_ui') }}" class="feature-link">
+                        Check Hallucinations <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="neural-connection">
+                        <div class="neural-connection-line" style="top: 60px; left: 30px; width: 60px; transform: rotate(20deg); animation-delay: 0.2s;"></div>
+                        <div class="neural-connection-line" style="bottom: 60px; right: 30px; width: 60px; transform: rotate(-20deg); animation-delay: 0.5s;"></div>
+                    </div>
+                </div>
+
+                <!-- Answer Correctness -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">Answer Correctness</h3>
+                    <p class="feature-description">The most robust metric for Bloom's questions. Compares the student's answer against a reference "perfect" answer.</p>
+                    <a href="{{ url_for('main.correctness_checker_ui') }}" class="feature-link">
+                        Open Grader <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="neural-connection">
+                        <div class="neural-connection-line" style="top: 40px; left: 20px; width: 50px; transform: rotate(45deg); animation-delay: 0.3s;"></div>
+                        <div class="neural-connection-line" style="top: 80px; right: 20px; width: 60px; transform: rotate(-30deg); animation-delay: 0.6s;"></div>
+                    </div>
+                </div>
+
+                <!-- Learner Analytics -->
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #fad961 0%, #f76b1c 100%);">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="feature-title">Learner Analytics</h3>
+                    <p class="feature-description">Monitor individual learner progress, identify knowledge gaps, and provide personalized recommendations based on performance data.</p>
+                    <a href="#" class="feature-link">
+                        View Reports <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="neural-connection">
+                        <div class="neural-connection-line" style="top: 50px; left: 25px; width: 55px; transform: rotate(35deg); animation-delay: 0.2s;"></div>
+                        <div class="neural-connection-line" style="bottom: 50px; right: 25px; width: 55px; transform: rotate(-35deg); animation-delay: 0.5s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+  <!--   <section class="dashboard-preview">
+        <div class="container dashboard-content">
+            <h2 class="dashboard-title">Neural Learning Analytics Dashboard</h2>
+            <p class="dashboard-subtitle">Real-time insights and predictive analytics powered by neural networks</p>
+            
+            <div class="dashboard-image">
+                <div style="position: relative; z-index: 2; text-align: center; padding: 20px;">
+                    <i class="fas fa-brain" style="font-size: 4rem; opacity: 0.3; color: #8b5cf6;"></i>
+                    <p style="margin-top: 20px; opacity: 0.5; color: white;">Neural Network Processing Visualization</p>
+                </div>
+            </div>
+            
+            <div class="dashboard-stats">
+                <div class="stat">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Neural Accuracy</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5.2K+</div>
+                    <div class="stat-label">Questions Generated</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1.2M</div>
+                    <div class="stat-label">Synaptic Connections</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">AI Learning</div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BloomMind AI</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 20px;">We develop innovative educational technology solutions based on pedagogical research and cognitive science principles.</p>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Our mission is to enhance learning outcomes through neural adaptive AI technology.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Research</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Resources</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Support</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-envelope"></i> sdt-dhe@goa.gov.in</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +91-XXX-XXXX-XXX</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Directorate of Higher Education</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri, 9AM-6PM</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Directorate of Higher Education. All rights reserved. | Powered by BloomMind Neural AI</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced Neural Network Animation
+        class NeuralNetwork {
+            constructor() {
+                this.canvas = document.getElementById('neural-network');
+                this.ctx = this.canvas.getContext('2d');
+                this.nodes = [];
+                this.connections = [];
+                this.pulses = [];
+                this.resize();
+                this.init();
+                this.animate();
+                
+                window.addEventListener('resize', () => this.resize());
+            }
+            
+            resize() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+                this.init();
+            }
+            
+            init() {
+                this.nodes = [];
+                this.connections = [];
+                
+                // Create nodes
+                const nodeCount = Math.floor(window.innerWidth / 40);
+                for (let i = 0; i < nodeCount; i++) {
+                    this.nodes.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        radius: 2 + Math.random() * 4,
+                        speed: 0.1 + Math.random() * 0.3,
+                        direction: Math.random() * Math.PI * 2,
+                        color: this.randomNeuronColor(),
+                        pulseIntensity: 0,
+                        pulseSpeed: 0.05 + Math.random() * 0.1
+                    });
+                }
+                
+                // Create connections
+                for (let i = 0; i < this.nodes.length; i++) {
+                    for (let j = i + 1; j < this.nodes.length; j++) {
+                        const dx = this.nodes[i].x - this.nodes[j].x;
+                        const dy = this.nodes[i].y - this.nodes[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 150) {
+                            this.connections.push({
+                                node1: this.nodes[i],
+                                node2: this.nodes[j],
+                                distance: distance,
+                                opacity: 0.05 + Math.random() * 0.2,
+                                active: false,
+                                activationTime: 0
+                            });
+                        }
+                    }
+                }
+            }
+            
+            randomNeuronColor() {
+                const colors = [
+                    '#667eea', '#764ba2', '#f093fb', '#f5576c',
+                    '#4facfe', '#00f2fe', '#43e97b', '#38f9d7',
+                    '#8b5cf6', '#a78bfa', '#5d5fef', '#4f46e5'
+                ];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            animate() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                // Update nodes
+                this.nodes.forEach(node => {
+                    // Move node
+                    node.x += Math.cos(node.direction) * node.speed;
+                    node.y += Math.sin(node.direction) * node.speed;
+                    
+                    // Bounce off edges
+                    if (node.x < 0 || node.x > this.canvas.width) {
+                        node.direction = Math.PI - node.direction;
+                    }
+                    if (node.y < 0 || node.y > this.canvas.height) {
+                        node.direction = -node.direction;
+                    }
+                    
+                    // Update pulse
+                    node.pulseIntensity += node.pulseSpeed;
+                    if (node.pulseIntensity > Math.PI * 2) {
+                        node.pulseIntensity = 0;
+                    }
+                    
+                    // Draw node
+                    const pulseScale = 1 + Math.sin(node.pulseIntensity) * 0.3;
+                    this.ctx.beginPath();
+                    this.ctx.arc(node.x, node.y, node.radius * pulseScale, 0, Math.PI * 2);
+                    this.ctx.fillStyle = node.color;
+                    this.ctx.fill();
+                    
+                    // Add glow effect
+                    const gradient = this.ctx.createRadialGradient(
+                        node.x, node.y, 0,
+                        node.x, node.y, node.radius * 4
+                    );
+                    gradient.addColorStop(0, node.color + '80');
+                    gradient.addColorStop(1, 'transparent');
+                    
+                    this.ctx.beginPath();
+                    this.ctx.arc(node.x, node.y, node.radius * 4, 0, Math.PI * 2);
+                    this.ctx.fillStyle = gradient;
+                    this.ctx.fill();
+                });
+                
+                // Draw connections
+                this.connections.forEach(conn => {
+                    const dx = conn.node1.x - conn.node2.x;
+                    const dy = conn.node1.y - conn.node2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        // Randomly activate connections
+                        if (Math.random() < 0.005 && !conn.active) {
+                            conn.active = true;
+                            conn.activationTime = Date.now();
+                        }
+                        
+                        if (conn.active) {
+                            const elapsed = Date.now() - conn.activationTime;
+                            if (elapsed > 1000) {
+                                conn.active = false;
+                            }
+                            
+                            const progress = elapsed / 1000;
+                            const pulseWidth = 2 * (1 - progress);
+                            const pulseOpacity = 0.8 * (1 - progress);
+                            
+                            this.ctx.beginPath();
+                            this.ctx.moveTo(conn.node1.x, conn.node1.y);
+                            this.ctx.lineTo(conn.node2.x, conn.node2.y);
+                            this.ctx.strokeStyle = `rgba(139, 92, 246, ${pulseOpacity})`;
+                            this.ctx.lineWidth = pulseWidth;
+                            this.ctx.stroke();
+                            
+                            // Create pulse along connection
+                            const pulseX = conn.node1.x + (conn.node2.x - conn.node1.x) * progress;
+                            const pulseY = conn.node1.y + (conn.node2.y - conn.node1.y) * progress;
+                            
+                            this.ctx.beginPath();
+                            this.ctx.arc(pulseX, pulseY, 3 * (1 - progress), 0, Math.PI * 2);
+                            this.ctx.fillStyle = `rgba(255, 255, 255, ${pulseOpacity})`;
+                            this.ctx.fill();
+                        } else {
+                            // Draw inactive connection
+                            this.ctx.beginPath();
+                            this.ctx.moveTo(conn.node1.x, conn.node1.y);
+                            this.ctx.lineTo(conn.node2.x, conn.node2.y);
+                            this.ctx.strokeStyle = `rgba(139, 92, 246, ${conn.opacity})`;
+                            this.ctx.lineWidth = 0.5;
+                            this.ctx.stroke();
+                        }
+                    }
+                });
+                
+                // Create random pulses
+                if (Math.random() < 0.02 && this.nodes.length > 0) {
+                    const startNode = this.nodes[Math.floor(Math.random() * this.nodes.length)];
+                    const endNode = this.nodes[Math.floor(Math.random() * this.nodes.length)];
+                    
+                    this.pulses.push({
+                        x: startNode.x,
+                        y: startNode.y,
+                        targetX: endNode.x,
+                        targetY: endNode.y,
+                        progress: 0,
+                        speed: 0.02 + Math.random() * 0.03,
+                        color: startNode.color,
+                        size: 2 + Math.random() * 3
+                    });
+                }
+                
+                // Draw and update pulses
+                this.pulses.forEach((pulse, index) => {
+                    pulse.progress += pulse.speed;
+                    
+                    if (pulse.progress >= 1) {
+                        this.pulses.splice(index, 1);
+                        return;
+                    }
+                    
+                    const x = pulse.x + (pulse.targetX - pulse.x) * pulse.progress;
+                    const y = pulse.y + (pulse.targetY - pulse.y) * pulse.progress;
+                    
+                    // Draw pulse
+                    this.ctx.beginPath();
+                    this.ctx.arc(x, y, pulse.size, 0, Math.PI * 2);
+                    this.ctx.fillStyle = pulse.color;
+                    this.ctx.fill();
+                    
+                    // Add trail
+                    const trailLength = 15;
+                    for (let i = 0; i < trailLength; i++) {
+                        const trailProgress = pulse.progress - (i * 0.03);
+                        if (trailProgress < 0) continue;
+                        
+                        const trailX = pulse.x + (pulse.targetX - pulse.x) * trailProgress;
+                        const trailY = pulse.y + (pulse.targetY - pulse.y) * trailProgress;
+                        
+                        this.ctx.beginPath();
+                        this.ctx.arc(trailX, trailY, pulse.size * (1 - i / trailLength), 0, Math.PI * 2);
+                        this.ctx.fillStyle = pulse.color + Math.floor(255 * (1 - i / trailLength)).toString(16).padStart(2, '0');
+                        this.ctx.fill();
+                    }
+                });
+                
+                // Limit pulses
+                if (this.pulses.length > 80) {
+                    this.pulses.splice(0, this.pulses.length - 80);
+                }
+                
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        // Initialize neural network when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const neuralNetwork = new NeuralNetwork();
+            
+            // Enhanced feature cards animation with staggered delay
+            const featureCards = document.querySelectorAll('.feature-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = 1;
+                            entry.target.style.transform = 'translateY(0)';
+                            
+                            // Add neural connection animation to each card
+                            const lines = entry.target.querySelectorAll('.neural-connection-line');
+                            lines.forEach((line, lineIndex) => {
+                                setTimeout(() => {
+                                    line.style.animation = 'neuralConnect 1s ease forwards';
+                                }, lineIndex * 200);
+                            });
+                        }, index * 150);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            featureCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(card);
+                
+                // Add hover effect for neural connections
+                card.addEventListener('mouseenter', function() {
+                    const lines = this.querySelectorAll('.neural-connection-line');
+                    lines.forEach((line, index) => {
+                        setTimeout(() => {
+                            line.style.animation = 'neuralConnect 1s ease forwards';
+                        }, index * 150);
+                    });
+                });
+            });
+            
+            // Taxonomy level interaction
+            const taxonomyLevels = document.querySelectorAll('.taxonomy-level');
+            taxonomyLevels.forEach(level => {
+                level.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(10px) scale(1.02)';
+                });
+                
+                level.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(10px)';
+                });
+                
+                level.addEventListener('click', function() {
+                    const levelName = this.querySelector('.level-name').textContent;
+                    showNeuralNotification(`Neural Pathway Activated: ${levelName}`);
+                });
+            });
+            
+            // Enhanced notification function
+            function showNeuralNotification(message) {
+                const notification = document.createElement('div');
+                notification.innerHTML = `
+                    <div style="position: fixed; top: 20px; right: 20px; background: rgba(15, 23, 42, 0.95); color: white; padding: 16px 24px; border-radius: 12px; box-shadow: 0 10px 30px rgba(93, 95, 239, 0.4); z-index: 10000; display: flex; align-items: center; gap: 12px; max-width: 400px; border: 1px solid rgba(93, 95, 239, 0.5); backdrop-filter: blur(10px); transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                        <i class="fas fa-brain" style="color: #8b5cf6; font-size: 1.2rem;"></i>
+                        <span style="font-weight: 500;">${message}</span>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Animate in
+                setTimeout(() => {
+                    notification.querySelector('div').style.transform = 'translateX(0)';
+                }, 10);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    notification.querySelector('div').style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 500);
+                }, 3000);
+            }
+            
+            // Add enhanced hover effect to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Add hover effect to stats
+            const stats = document.querySelectorAll('.stat');
+            stats.forEach(stat => {
+                stat.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                stat.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

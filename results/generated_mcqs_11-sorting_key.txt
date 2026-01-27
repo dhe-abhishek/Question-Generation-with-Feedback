@@ -1,0 +1,25 @@
+--- Question 1 ---
+Bloom's Level: 1 (Remembering)
+Question: In a query plan, how is data arranged and in which direction does it flow?
+Answer: In a query plan, operators are arranged in a tree. Data flows from the leaves of the tree up towards the root, and the output of the root node is the query's result.
+
+--- Question 2 ---
+Bloom's Level: 1 (Remembering)
+Question: What are the two materialization choices for the 'Value' component in sorting algorithms?
+Answer: The two choices for the 'Value' component are the full tuple, known as early materialization, or the record ID, known as late materialization.
+
+--- Question 3 ---
+Bloom's Level: 1 (Remembering)
+Question: What are the two main phases of the External Merge Sort algorithm?
+Answer: The first phase is Sorting, where chunks of data are sorted in memory and written to disk. The second phase is Merging, where the sorted runs are combined into larger sorted runs.
+
+--- Question 4 ---
+Bloom's Level: 1 (Remembering)
+Question: What is the primary benefit of using a clustered B+Tree for sorting?
+Answer: Using a clustered B+Tree is always better than external sorting because there is no computational cost and all disk access is sequential by traversing the leaf pages.
+
+--- Question 5 ---
+Bloom's Level: 1 (Remembering)
+Question: What are the two main implementation choices for handling aggregations in a database system?
+Answer: The two implementation choices for aggregations mentioned in the text are sorting and hashing.
+

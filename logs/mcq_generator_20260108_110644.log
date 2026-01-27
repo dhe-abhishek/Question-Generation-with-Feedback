@@ -1,0 +1,80 @@
+2026-01-08 11:06:45,442 - matplotlib - DEBUG - matplotlib data path: D:\Learning Analytics\Learning-AI\Learning_Analytics-API\venv\Lib\site-packages\matplotlib\mpl-data
+2026-01-08 11:06:45,452 - matplotlib - DEBUG - CONFIGDIR=C:\Users\Administrator\.matplotlib
+2026-01-08 11:06:45,453 - matplotlib - DEBUG - interactive is False
+2026-01-08 11:06:45,453 - matplotlib - DEBUG - platform is win32
+2026-01-08 11:06:45,501 - matplotlib - DEBUG - CACHEDIR=C:\Users\Administrator\.matplotlib
+2026-01-08 11:06:45,504 - matplotlib.font_manager - DEBUG - Using fontManager instance from C:\Users\Administrator\.matplotlib\fontlist-v390.json
+2026-01-08 11:06:48,087 - datasets - DEBUG - PyTorch version 2.9.0 available.
+2026-01-08 11:06:51,618 - ragas._analytics - DEBUG - Starting AnalyticsBatcher thread with interval 10 seconds
+2026-01-08 11:06:52,766 - relevancy_utils - INFO - Starting Ragas scorer initialization...
+2026-01-08 11:06:53,388 - relevancy_utils - DEBUG - ChatGroq LLM initialized.
+2026-01-08 11:06:54,862 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-01-08 11:06:54,863 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-01-08 11:06:54,865 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2026-01-08 11:06:55,681 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-08 11:06:55,698 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-08 11:06:55,923 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-08 11:06:55,940 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-08 11:06:56,157 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+2026-01-08 11:06:56,172 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+2026-01-08 11:06:56,387 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+2026-01-08 11:06:56,403 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+2026-01-08 11:06:56,620 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+2026-01-08 11:06:56,637 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+2026-01-08 11:06:56,859 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+2026-01-08 11:06:56,877 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+2026-01-08 11:06:57,111 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+2026-01-08 11:06:57,330 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+2026-01-08 11:06:57,346 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+2026-01-08 11:06:57,645 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2026-01-08 11:06:57,662 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+2026-01-08 11:06:57,885 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2026-01-08 11:06:58,153 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+2026-01-08 11:06:58,170 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+2026-01-08 11:06:58,395 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6884
+2026-01-08 11:06:58,399 - relevancy_utils - DEBUG - HuggingFace Embeddings initialized.
+2026-01-08 11:06:58,400 - relevancy_utils - INFO - Ragas ResponseRelevancy scorer initialized successfully.
+2026-01-08 11:06:58,402 - faithfulness_utils - INFO - Initializing Faithfulness scorer...
+2026-01-08 11:06:59,024 - faithfulness_utils - INFO - Faithfulness scorer initialized successfully.
+2026-01-08 11:06:59,045 - werkzeug - WARNING -  * Debugger is active!
+2026-01-08 11:06:59,048 - werkzeug - INFO -  * Debugger PIN: 103-783-783
+2026-01-08 11:06:59,188 - routes - INFO - Rendering home page
+2026-01-08 11:06:59,208 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:06:59] "GET / HTTP/1.1" 200 -
+2026-01-08 11:07:02,412 - routes - INFO - Rendering Generate Quiz page
+2026-01-08 11:07:02,418 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:07:02] "GET /generate-quiz HTTP/1.1" 200 -
+2026-01-08 11:07:09,925 - file_utils - DEBUG - File generated_mcqs_03-storage1_questions-2.pdf allowed: True
+2026-01-08 11:07:09,927 - file_utils - INFO - File saved to: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation\uploads\generated_mcqs_03-storage1_questions-2.pdf
+2026-01-08 11:07:09,937 - pdf_extraction_util - INFO - Successfully extracted 1666 characters from generated_mcqs_03-storage1_questions-2.pdf
+2026-01-08 11:07:35,964 - file_utils - INFO - Cleaned up file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation\uploads\generated_mcqs_03-storage1_questions-2.pdf
+2026-01-08 11:07:35,987 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:07:35] "POST /start-quiz HTTP/1.1" 200 -
+2026-01-08 11:08:51,687 - werkzeug - INFO - 192.168.0.111 - - [08/Jan/2026 11:08:51] "GET /take-quiz/generated_mcqs_03-storage1_questions-2.pdf HTTP/1.1" 200 -
+2026-01-08 11:08:52,200 - werkzeug - INFO - 192.168.0.111 - - [08/Jan/2026 11:08:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-08 11:09:37,296 - routes - INFO - Rendering Generate Quiz page
+2026-01-08 11:09:37,297 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:09:37] "GET /generate-quiz HTTP/1.1" 200 -
+2026-01-08 11:09:46,474 - file_utils - DEBUG - File generated_mcqs_02_Transcript_questions.pdf allowed: True
+2026-01-08 11:09:46,476 - file_utils - INFO - File saved to: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation\uploads\generated_mcqs_02_Transcript_questions.pdf
+2026-01-08 11:09:46,484 - pdf_extraction_util - INFO - Successfully extracted 2929 characters from generated_mcqs_02_Transcript_questions.pdf
+2026-01-08 11:10:17,338 - file_utils - INFO - Cleaned up file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation\uploads\generated_mcqs_02_Transcript_questions.pdf
+2026-01-08 11:10:17,350 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:10:17] "POST /start-quiz HTTP/1.1" 200 -
+2026-01-08 11:10:33,703 - werkzeug - INFO - 192.168.0.111 - - [08/Jan/2026 11:10:33] "GET /take-quiz/generated_mcqs_02_Transcript_questions.pdf HTTP/1.1" 200 -
+2026-01-08 11:10:34,267 - werkzeug - INFO - 192.168.0.111 - - [08/Jan/2026 11:10:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-08 11:10:40,587 - werkzeug - INFO - 192.168.0.150 - - [08/Jan/2026 11:10:40] "GET /take-quiz/generated_mcqs_02_Transcript_questions.pdf HTTP/1.1" 200 -
+2026-01-08 11:10:41,769 - werkzeug - INFO - 192.168.0.150 - - [08/Jan/2026 11:10:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-08 11:11:37,740 - werkzeug - INFO - 192.168.0.111 - - [08/Jan/2026 11:11:37] "POST /submit-quiz/generated_mcqs_02_Transcript_questions.pdf HTTP/1.1" 200 -
+2026-01-08 11:11:52,129 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:11:52] "GET /take-quiz/generated_mcqs_02_Transcript_questions.pdf HTTP/1.1" 200 -
+2026-01-08 11:12:30,728 - werkzeug - INFO - 192.168.0.150 - - [08/Jan/2026 11:12:30] "POST /submit-quiz/generated_mcqs_02_Transcript_questions.pdf HTTP/1.1" 200 -
+2026-01-08 11:13:50,210 - routes - INFO - Rendering home page
+2026-01-08 11:13:50,211 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:13:50] "GET / HTTP/1.1" 200 -
+2026-01-08 11:13:51,421 - routes - INFO - Rendering home page
+2026-01-08 11:13:51,421 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:13:51] "GET / HTTP/1.1" 200 -
+2026-01-08 11:13:51,545 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:13:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-08 11:13:53,710 - routes - INFO - Rendering Generate Quiz page
+2026-01-08 11:13:53,711 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:13:53] "GET /generate-quiz HTTP/1.1" 200 -
+2026-01-08 11:15:02,347 - file_utils - DEBUG - File generated_mcqs_02_Transcript_questions.pdf allowed: True
+2026-01-08 11:15:02,349 - file_utils - INFO - File saved to: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation\uploads\generated_mcqs_02_Transcript_questions.pdf
+2026-01-08 11:15:02,359 - pdf_extraction_util - INFO - Successfully extracted 2929 characters from generated_mcqs_02_Transcript_questions.pdf
+2026-01-08 11:15:13,146 - file_utils - INFO - Cleaned up file: D:\Learning Analytics\Learning-AI\Question_and_Answer_Generation\uploads\generated_mcqs_02_Transcript_questions.pdf
+2026-01-08 11:15:13,153 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:15:13] "POST /start-quiz HTTP/1.1" 200 -
+2026-01-08 11:15:15,188 - werkzeug - INFO - 127.0.0.1 - - [08/Jan/2026 11:15:15] "GET /take-quiz/generated_mcqs_02_Transcript_questions.pdf HTTP/1.1" 200 -
+2026-01-08 11:20:02,706 - werkzeug - INFO -  * Detected change in 'D:\\Learning Analytics\\Learning-AI\\Question_and_Answer_Generation\\app\\routes.py', reloading
+2026-01-08 11:20:02,707 - ragas._analytics - DEBUG - AnalyticsBatcher shutdown complete

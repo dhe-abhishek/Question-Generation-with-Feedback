@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results | BloomMind AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+    <style>
+        :root {
+            --primary: #5d5fef;
+            --secondary: #38f9d7;
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --dark: #0f172a;
+            --card-bg: #1e293b;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            background: var(--gradient-4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .mcq-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .mcq-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .question-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .blooms-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            background: rgba(139, 92, 246, 0.15);
+            color: #a78bfa;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .option-item {
+            background: rgba(15, 23, 42, 0.4);
+            padding: 14px;
+            border-radius: 12px;
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .answer-key {
+            padding: 15px;
+            background: rgba(56, 249, 215, 0.1);
+            border-left: 4px solid var(--secondary);
+            color: var(--secondary);
+            font-weight: 700;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Rating System Styles */
+        .rating-section {
+            margin-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .stars i {
+            cursor: pointer;
+            color: #475569;
+            font-size: 1.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .stars i.active {
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+        }
+
+        .feedback-area {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feedback-area label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .feedback-area select {
+            width: 100%;
+            padding: 10px;
+            background: #0f172a;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .btn-reframe {
+            background: var(--gradient-4);
+            color: var(--dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-reframe:disabled { opacity: 0.7; cursor: not-allowed; }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .btn-download {
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-pdf { background: #ef4444; color: white; }
+        .btn-txt { background: #3b82f6; color: white; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Generation Results</h1>
+            <p>Generated Type: 
+                <strong>
+                    {% if question_type == '1' %}Multiple Choice{% elif question_type == '2' %}Fill-in-the-Blank{% else %}Short Answer{% endif %}
+                </strong>
+                
+                <strong>
+                    {% if question_type == '1' %}Multiple Choice
+                    {% elif question_type == '2' %}Fill-in-the-Blank
+                    {% elif question_type == '3' %}Short Answer
+                    {% elif question_type == '4' %}Long Answer
+                    {% else %}Question{% endif %}
+                </strong>
+            </p>
+        </div>
+
+        <div class="questions-list">
+            {% for q in questions %}
+            <div class="mcq-card" id="q-{{ loop.index0 }}">
+                <span class="blooms-badge">Bloom's Level: {{ q.blooms_level }}</span>
+                <div class="question-text">{{ loop.index }}. {{ q.question }}</div>
+
+                {% if question_type == '1' and q.options %}
+                <div class="options-grid">
+                    {% for option in q.options %}
+                    <div class="option-item">
+                        <strong>{{ ["A", "B", "C", "D"][loop.index0] }}.</strong> {{ option }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="answer-key">
+                    <i class="fas fa-check-circle"></i> Correct Answer: 
+                    <strong>{{ answers[loop.index0].correct_answer }}</strong>
+                </div>
+
+                <div class="rating-section">
+                    <label style="font-size: 0.85rem; color: #94a3b8;">Rate this question quality:</label>
+                    <div class="stars" data-qidx="{{ loop.index0 }}">
+                        <i class="fas fa-star" onclick="updateRating({{ loop.index0 }}, 1)"></i>
+                        <i class="fas fa-star" onclick="updateRating({{ loop.index0 }}, 2)"></i>
+                        <i class="fas fa-star" onclick="updateRating({{ loop.index0 }}, 3)"></i>
+                        <i class="fas fa-star" onclick="updateRating({{ loop.index0 }}, 4)"></i>
+                        <i class="fas fa-star" onclick="updateRating({{ loop.index0 }}, 5)"></i>
+                    </div>
+
+                    <div class="feedback-area" id="feedback-{{ loop.index0 }}">
+                        <label>Why the low rating?</label>
+                        <select id="reason-{{ loop.index0 }}">
+                            <option value="Incorrect information">Incorrect information</option>
+                            <option value="Too confusing/wordy">Too confusing/wordy</option>
+                            <option value="Not relevant to context">Not relevant to context</option>
+                            <option value="Answer is too obvious">Answer is too obvious</option>
+                        </select>
+                        <button class="btn-reframe" onclick="reframeQuestion({{ loop.index0 }})">
+                            <i class="fas fa-sync-alt"></i> Regenerate This Question
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="actions">
+            {% if pdf_filename %}
+            <a href="{{ url_for('main.download_file', filename=pdf_filename) }}" class="btn-download btn-pdf">
+                <i class="fas fa-file-pdf"></i> Download PDF
+            </a>
+            {% endif %}
+            
+            {% if txt_filename %}
+            <a href="{{ url_for('main.download_file', filename=txt_filename) }}" class="btn-download btn-txt">
+                <i class="fas fa-file-alt"></i> Download TXT
+            </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // Use the question_type variable passed from the route
+        const currentQuestionType = "{{ question_type }}";
+        
+
+        function updateRating(qIdx, rating) {
+            const starContainer = document.querySelector(`.stars[data-qidx="${qIdx}"]`);
+            const stars = starContainer.querySelectorAll('i');
+            const feedbackArea = document.getElementById(`feedback-${qIdx}`);
+
+            // Visual Update for Stars
+            stars.forEach((star, index) => {
+                if (index < rating) star.classList.add('active');
+                else star.classList.remove('active');
+            });
+
+            // Logic: Show feedback if rating is 2 or less
+            if (rating <= 2) {
+                feedbackArea.style.display = 'block';
+            } else {
+                feedbackArea.style.display = 'none';
+            }
+        }
+
+        async function reframeQuestion(qIdx) {
+            
+            const reasonSelect = document.getElementById(`reason-${qIdx}`);
+            const reason = reasonSelect.value;
+            const btn = document.querySelector(`#feedback-${qIdx} button`);
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            alert(currentQuestionType);
+            try {
+                const response = await fetch('/reframe_question', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        question_index: qIdx,
+                        reason: reason,
+                        question_type: currentQuestionType
+                    })
+                });
+
+                if (response.ok) {
+                    // Success: Reload to show the updated list from the session
+                    //window.location.reload();
+                    window.location.href = '/display_results';
+                } else {
+                    const data = await response.json();
+                    alert("Regeneration failed: " + (data.error || "Server error"));
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-sync-alt"></i> Regenerate This Question';
+                }
+            } catch (err) {
+                console.error("Fetch error:", err);
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-sync-alt"></i> Regenerate This Question';
+            }
+        }
+    </script>
+</body>
+</html>

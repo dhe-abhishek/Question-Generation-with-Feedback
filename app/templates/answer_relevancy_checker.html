@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Relevancy Checker - BloomsMind AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles from home.html for consistency */
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #e3e8f5 100%); color: #212529; line-height: 1.6; min-height: 100vh; padding-bottom: 2rem; }
+        .container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .page-header { text-align: center; margin: 30px 0; color: #3a0ca3; font-size: 2.5rem; }
+        .form-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; color: #4361ee; }
+        textarea { width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1rem; resize: vertical; min-height: 150px; }
+        .btn-submit { background: #00b4d8; color: white; padding: 12px 25px; border: none; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 1.1rem; transition: background 0.3s ease; }
+        .btn-submit:hover { background: #0077b6; }
+        
+        .results-section { margin-top: 40px; padding: 30px; border-radius: 12px; background: linear-gradient(145deg, #e3f2fd, #ffffff); border: 1px solid #bbdefb; }
+        .score-display { text-align: center; margin: 20px 0; }
+        .score-value { font-size: 4rem; font-weight: 700; color: #4cc9f0; display: block; margin: 10px 0; text-shadow: 2px 2px #4361ee; }
+        .score-label { font-size: 1.5rem; color: #3a0ca3; font-weight: 500; }
+        .analysis-text { color: #555; margin-top: 15px; border-left: 4px solid #4361ee; padding-left: 15px; }
+
+        .flash-message { 
+            padding: 15px; 
+            margin-bottom: 20px; 
+            border-radius: 8px; 
+            font-weight: 500;
+        }
+        .flash-message.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .flash-message.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .flash-message.warning { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h2 class="page-header"><i class="fas fa-crosshairs"></i> Answer Relevancy Analysis (RAG Metric)</h2>
+        <p style="text-align: center; color: #555; margin-bottom: 30px;">This feature uses the Ragas framework and an external LLM (e.g., Groq) to evaluate how well the generated **Answer** semantically addresses the user's **Question**. A score closer to 1.0 indicates higher relevancy.</p>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flashes">
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="form-card">
+            <form action="{{ url_for('main.calculate_relevancy_score_route') }}" method="post">
+                
+                <div class="form-group">
+                    <label for="question"><i class="fas fa-question-circle"></i> User Question:</label>
+                    <textarea name="question" id="question" rows="4" required placeholder="Enter the user's question here...">{{ question if question else '' }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="answer"><i class="fas fa-reply"></i> Generated Answer:</label>
+                    <textarea name="answer" id="answer" rows="8" required placeholder="Paste the model's generated answer here...">{{ answer if answer else '' }}</textarea>
+                </div>
+
+                <div style="text-align: center;">
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-cogs"></i> Calculate Relevancy Score
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {% if relevancy_score is not none %}
+        <div class="results-section">
+            <h3>Response Evaluation Results</h3>
+            <hr>
+            <div class="score-display">
+                <span class="score-value">{{ '%.4f' | format(relevancy_score) }}</span>
+                <span class="score-label">Ragas Response Relevancy Score</span>
+            </div>
+            
+            <div class="analysis-text">
+                <p><strong>Score Interpretation:</strong></p>
+                <ul>
+                    <li>If the score is **close to 1.0** (e.g., > 0.85), the answer is highly relevant and directly addresses the question.</li>
+                    <li>If the score is **close to 0.0** (e.g., < 0.40), the answer is likely off-topic, incomplete, or fails to satisfy the query's core intent.</li>
+                </ul>
+                <p style="margin-top: 15px;">The analysis is performed by an advanced LLM, providing a sophisticated semantic evaluation.</p>
+            </div>
+            
+            <h4 style="margin-top: 30px;">Review</h4>
+            <div style="background: #f1f8e9; padding: 15px; border-radius: 6px; border: 1px solid #c5e1a5;">
+                <p><strong>Question:</strong> {{ question }}</p>
+            </div>
+            <div style="background: #e1f5fe; padding: 15px; border-radius: 6px; margin-top: 10px; border: 1px solid #b3e5fc;">
+                <p><strong>Answer:</strong> {{ answer | truncate(200, True) }}...</p>
+            </div>
+
+        </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
