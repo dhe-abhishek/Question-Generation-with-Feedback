@@ -6,7 +6,7 @@ import qrcode
 import io
 import base64
 import socket
-from app.database import db, Question, Quiz, Student, QuizAttempt, StudentResponse, Context
+from app.database import db, Question, Quiz, Student, QuizAttempt, StudentResponse, Context, McqOption, TextAnswer, QuestionEvaluation
 from app.services.quiz_service import QuizService
 from flask import render_template, request, send_file, Blueprint, flash, redirect, url_for, jsonify, session
 from config import Config
@@ -25,6 +25,7 @@ from utils.relevancy_utils import calculate_relevancy_score
 from utils.faithfulness_utils import calculate_faithfulness_score
 from utils.correctness_utils import calculate_correctness_score
 from app.services.note_generation_service import NoteGenerationService
+from app.services.question_evaluator import QuestionEvaluator
 
 
 
@@ -122,12 +123,6 @@ def generate_questions():
         session['current_answers'] = answer_key_list
         session.modified = True
         
-        """ print("***********questions********")
-        print(questions_list)
-        print("***********answers********")
-        print(answer_key_list) """
-        
-
         # --- 5. Save and Render Results ---
         
         # FIX: Pass all required arguments to file generators
@@ -145,9 +140,85 @@ def generate_questions():
             # If PDF also failed, redirect
             if pdf_error:
                 return redirect(url_for('main.question_generator'))
+        
+        # =========================================================================
+        # FIXED CODE: Trigger LLM Judge Evaluation on 7 Parameters
+        # =========================================================================
+        try:
+            evaluator = QuestionEvaluator()
+            saved_ids = []
 
+            # 1. Flatten answer_key_list if it is accidentally nested
+            if answer_key_list and isinstance(answer_key_list[0], list):
+                answer_key_list = [item for sublist in answer_key_list for item in sublist]
+
+            for i, q_data in enumerate(questions_list):
+                # Ensure q_data is a dictionary
+                if isinstance(q_data, list) and len(q_data) > 0:
+                    q_data = q_data[0]
+                
+                if not isinstance(q_data, dict):
+                    logger.error(f"Expected dict but got {type(q_data)} for question index {i}")
+                    continue
+                
+                # Create Base Question record
+                new_q = Question(
+                    question_text=q_data.get('question'),
+                    blooms_id=blooms_level_choice if blooms_level_choice != 'all' else None,
+                    source_document=filename
+                )
+                db.session.add(new_q)
+                db.session.flush() # Get ID before commit
+                
+                # 2. Retrieve the corresponding answer safely
+                # Search for the dictionary in answer_key_list that matches the question number
+                ans_text = "No answer provided"
+                if isinstance(answer_key_list, list):
+                    ans_text = next((a.get('correct_answer') for a in answer_key_list 
+                                   if isinstance(a, dict) and a.get('question_number') == q_data.get('question_number')), 
+                                   "No answer provided")
+                
+                # 3. Handle MCQ or Text Answer specific logic
+                if question_type == '1':
+                    opts = q_data.get('options', {})
+                    # Ensure options is a dict if it came back as a list
+                    if isinstance(opts, list):
+                        # Map list [A, B, C, D] to dict {'A':..., 'B':...}
+                        opts = {chr(65+idx): val for idx, val in enumerate(opts)}
+                    
+                    db.session.add(McqOption(
+                        question_id=new_q.id,
+                        option_a=opts.get('A'), 
+                        option_b=opts.get('B'),
+                        option_c=opts.get('C'), 
+                        option_d=opts.get('D'),
+                        correct_option=q_data.get('correct_option_letter')
+                    ))
+                else:
+                    db.session.add(TextAnswer(question_id=new_q.id, answer_content=ans_text))
+            
+                # Use unified variable name 'ans_text'
+                saved_ids.append((new_q.id, q_data.get('question'), ans_text))
+
+            db.session.commit()
+                
+            # 4. Scientific Evaluation Trigger
+            for q_id, q_text, a_text in saved_ids:
+                evaluator.evaluate_and_save(q_id, text_content, q_text, a_text)
+            logger.info("Scientific evaluation for QGEval dimensions completed.")
+
+        except Exception as eval_err:
+            db.session.rollback()
+            logger.error(f"Evaluation trigger failed: {str(eval_err)}", exc_info=True)
+        # =========================================================================
         
         logger.info(f"Successfully generated {len(questions_list)} questions.")
+        
+        # Store metadata in session for display_results and reframing
+        session['last_pdf_filename'] = pdf_filename
+        session['last_txt_filename'] = txt_filename
+        session['last_question_type'] = question_type
+        session.modified = True
         
         # Render the results page with download links
         
@@ -1011,8 +1082,13 @@ def reframe_question():
         from app.services.pdf_generation import create_pdf
     
         
-        create_pdf(ordered_questions, ordered_answers, base_filename, q_type)
-        save_mcq_results(ordered_questions, ordered_answers, base_filename)
+        new_pdf, pdf_err = create_pdf(ordered_questions, ordered_answers, base_filename, q_type)
+        new_txt, txt_err = save_mcq_results(ordered_questions, ordered_answers, base_filename)
+        
+        # CRITICAL FIX: Update session with new filenames
+        session['last_pdf_filename'] = new_pdf
+        session['last_txt_filename'] = new_txt
+        session.modified = True
         
         return jsonify({"status": "success"})
     
@@ -1026,6 +1102,8 @@ def display_results():
     answers = session.get('current_answers')
     context_id = session.get('last_context_id')
     q_type = session.get('last_question_type', '1')
+    pdf_filename = session.get('last_pdf_filename')
+    txt_filename = session.get('last_txt_filename')
     ordered_questions = []
     for q in questions:
         # We create a new dict for each item in the exact order requested
@@ -1064,6 +1142,6 @@ def display_results():
         questions=ordered_questions,
         answers=ordered_answers,
         question_type=q_type,
-        pdf_filename=filename,
-        txt_filename=f"{filename}.txt"
+        pdf_filename=pdf_filename,
+        txt_filename=txt_filename
     )

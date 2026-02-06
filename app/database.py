@@ -97,3 +97,27 @@ class Context(db.Model):
 
     def __repr__(self):
         return f'<Context {self.file_name}>'
+    
+
+class QuestionEvaluation(db.Model):
+    __tablename__ = 'question_evaluations'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    # Foreign key linking to your existing 'questions' table
+    question_id = db.Column(db.Integer, db.ForeignKey('questions.id', ondelete='CASCADE'), nullable=False)
+    
+    # QGEval Dimensions (Scores typically 1-5)
+    fluency = db.Column(db.Float, nullable=True)
+    clarity = db.Column(db.Float, nullable=True)
+    conciseness = db.Column(db.Float, nullable=True)
+    relevance = db.Column(db.Float, nullable=True)
+    consistency = db.Column(db.Float, nullable=True)
+    answerability = db.Column(db.Float, nullable=True)
+    answer_consistency = db.Column(db.Float, nullable=True)
+    
+    # Metadata for analysis
+    model_used = db.Column(db.String(50), default='gemini-3-flash')
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    # Optional: Relationship to easily access evaluation from a Question object
+    question = db.relationship('Question', backref=db.backref('evaluation', uselist=False))

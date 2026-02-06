@@ -32,6 +32,11 @@ class Config:
     GEMINI_API_KEY = os.getenv('GOOGLE_API_KEY') 
     MAX_QUESTIONS = 20 # Maximum number of questions allowed
     
+    # Groq Configuration for Evaluation
+    GROQ_API_KEY = os.getenv('GROQ_API_KEY')
+    GROQ_MODEL = 'llama-3.3-70b-versatile' # High-quality model for evaluation
+    GROQ_BASE_URL = "https://api.groq.com/openai/v1"
+    
     # New: Define Question Types
     QUESTION_TYPES = {
         '1': 'Multiple Choice Question (MCQ)',

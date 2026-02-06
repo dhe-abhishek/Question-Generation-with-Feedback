@@ -1,0 +1,3 @@
+Inter-Rater Reliability / ICC (inter_rater_reliability.py)
+Note: IRR requires at least two "raters" (e.g., your LLM vs a Human). This script assumes your database might contain multiple evaluations for the same question_id
+(by different models or human tags). It calculates ICC3k (Consistency of the system).
